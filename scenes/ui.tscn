@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c1ndh4e5hiqgc"]
+
+[ext_resource type="Script" uid="uid://b8xhlyuj2w6u0" path="res://scripts/ui/game_ui.gd" id="1_nt7q6"]
+
+[node name="UI" type="CanvasLayer" unique_id=337467620]
+script = ExtResource("1_nt7q6")
+
+[node name="double_jump_text" type="Label" parent="." unique_id=51548743]
+offset_right = 128.0
+offset_bottom = 64.0
+text = "double jump?
+yes"
+
+[node name="dash_text" type="Label" parent="." unique_id=862384000]
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 128.0
+text = "dash?
+yes"

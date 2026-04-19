@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cpbk2q31xyybd"]
+
+[ext_resource type="Script" uid="uid://b6uh5jgfv33sl" path="res://scripts/game/basic_enemy.gd" id="1_1m5xl"]
+[ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_xjpoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1m5xl"]
+size = Vector2(32, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjpoc"]
+size = Vector2(35, 51)
+
+[node name="basic_enemy" type="CharacterBody2D" unique_id=1311455642]
+script = ExtResource("1_1m5xl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1674750778]
+shape = SubResource("RectangleShape2D_1m5xl")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1123823822]
+modulate = Color(1, 0.4497674, 0.9512095, 1)
+scale = Vector2(0.25, 0.375)
+texture = ExtResource("1_xjpoc")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=429958653]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=2138496421]
+shape = SubResource("RectangleShape2D_xjpoc")

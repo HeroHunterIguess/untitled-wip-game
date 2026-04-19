@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://drb0cfk1apf3u"]
+
+[ext_resource type="PackedScene" uid="uid://di4aevmrg7s13" path="res://scenes/objects/test_square.tscn" id="1_bl568"]
+[ext_resource type="PackedScene" uid="uid://cg767ovvy5ane" path="res://scenes/player.tscn" id="2_jdhkw"]
+[ext_resource type="PackedScene" uid="uid://cpbk2q31xyybd" path="res://scenes/enemy types/basic_enemy.tscn" id="3_rn7du"]
+[ext_resource type="PackedScene" uid="uid://c1ndh4e5hiqgc" path="res://scenes/ui.tscn" id="3_x4up3"]
+
+[node name="test_scene" type="Node2D" unique_id=197768198]
+
+[node name="player" parent="." unique_id=1754200920 instance=ExtResource("2_jdhkw")]
+position = Vector2(224, 544)
+
+[node name="objects" type="Node" parent="." unique_id=839775039]
+
+[node name="test_square" parent="objects" unique_id=974885529 instance=ExtResource("1_bl568")]
+position = Vector2(96, 608)
+
+[node name="test_square2" parent="objects" unique_id=534344318 instance=ExtResource("1_bl568")]
+position = Vector2(160, 608)
+
+[node name="test_square3" parent="objects" unique_id=755161920 instance=ExtResource("1_bl568")]
+position = Vector2(32, 608)
+
+[node name="test_square4" parent="objects" unique_id=1556825695 instance=ExtResource("1_bl568")]
+position = Vector2(224, 608)
+
+[node name="test_square5" parent="objects" unique_id=941028996 instance=ExtResource("1_bl568")]
+position = Vector2(288, 608)
+
+[node name="test_square6" parent="objects" unique_id=847773836 instance=ExtResource("1_bl568")]
+position = Vector2(352, 608)
+
+[node name="test_square7" parent="objects" unique_id=1936689978 instance=ExtResource("1_bl568")]
+position = Vector2(416, 608)
+
+[node name="test_square8" parent="objects" unique_id=282541983 instance=ExtResource("1_bl568")]
+position = Vector2(544, 608)
+
+[node name="test_square9" parent="objects" unique_id=940555089 instance=ExtResource("1_bl568")]
+position = Vector2(608, 608)
+
+[node name="test_square10" parent="objects" unique_id=2048946928 instance=ExtResource("1_bl568")]
+position = Vector2(480, 608)
+
+[node name="test_square11" parent="objects" unique_id=110739827 instance=ExtResource("1_bl568")]
+position = Vector2(672, 608)
+
+[node name="test_square12" parent="objects" unique_id=2056850192 instance=ExtResource("1_bl568")]
+position = Vector2(736, 608)
+
+[node name="test_square13" parent="objects" unique_id=63912162 instance=ExtResource("1_bl568")]
+position = Vector2(800, 608)
+
+[node name="test_square14" parent="objects" unique_id=913707112 instance=ExtResource("1_bl568")]
+position = Vector2(864, 608)
+
+[node name="test_square15" parent="objects" unique_id=773325786 instance=ExtResource("1_bl568")]
+position = Vector2(928, 608)
+
+[node name="test_square16" parent="objects" unique_id=1439183685 instance=ExtResource("1_bl568")]
+position = Vector2(992, 608)
+
+[node name="test_square17" parent="objects" unique_id=924539069 instance=ExtResource("1_bl568")]
+position = Vector2(1056, 608)
+
+[node name="test_square18" parent="objects" unique_id=673787874 instance=ExtResource("1_bl568")]
+position = Vector2(1120, 608)
+
+[node name="test_square19" parent="objects" unique_id=1669508375 instance=ExtResource("1_bl568")]
+position = Vector2(-32, 536)
+
+[node name="test_square20" parent="objects" unique_id=1012644921 instance=ExtResource("1_bl568")]
+position = Vector2(1184, 544)
+
+[node name="enemies" type="Node" parent="." unique_id=2022920308]
+
+[node name="basic_enemy" parent="enemies" unique_id=1311455642 instance=ExtResource("3_rn7du")]
+position = Vector2(680, 416)
+
+[node name="basic_enemy2" parent="enemies" unique_id=974740863 instance=ExtResource("3_rn7du")]
+position = Vector2(736, 344)
+
+[node name="basic_enemy3" parent="enemies" unique_id=617371415 instance=ExtResource("3_rn7du")]
+position = Vector2(576, 360)
+
+[node name="basic_enemy4" parent="enemies" unique_id=852102516 instance=ExtResource("3_rn7du")]
+position = Vector2(880, 328)
+
+[node name="UI" parent="." unique_id=337467620 instance=ExtResource("3_x4up3")]
