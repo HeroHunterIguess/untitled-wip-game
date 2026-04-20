@@ -19,7 +19,7 @@ var is_attacking = false
 # updating movement and physics every frame
 func _physics_process(delta: float) -> void:
 	
-	# update slide timer
+	# update dash timer
 	data.dash_timer -= 1
 	
 	# apply gravity
@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, global.FRICTION * delta)
 	
-	# slide input
+	# dash input
 	if Input.is_action_just_pressed("dash"): 
 		if data.dash_timer <= 0.0:
 			data.dash_timer = DASH_COOLDOWN
