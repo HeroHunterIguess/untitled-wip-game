@@ -11,7 +11,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_g2els")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1315930475]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1315930475 groups=["player"]]
 shape = SubResource("RectangleShape2D_g2brh")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=2094496735]

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cbv0p1biaybb3"]
+
+[ext_resource type="Script" uid="uid://3tfxg62j0gj6" path="res://scripts/game/ground_slam.gd" id="1_3fm40"]
+[ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="2_ft8yu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_su1go"]
+radius = 88.0
+
+[node name="Area2D" type="Area2D" unique_id=1249516471]
+script = ExtResource("1_3fm40")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=975459535]
+position = Vector2(3.8146973e-06, 3.8146973e-06)
+scale = Vector2(0.87500006, 0.87500006)
+texture = ExtResource("2_ft8yu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1642465214]
+shape = SubResource("CircleShape2D_su1go")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

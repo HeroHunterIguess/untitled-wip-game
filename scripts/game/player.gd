@@ -14,7 +14,9 @@ var moving_right = true
 var can_jump = false
 
 var is_attacking = false
+var slamming = false
 
+var ground_slam = null
 
 # updating movement and physics every frame
 func _physics_process(delta: float) -> void:
@@ -81,6 +83,7 @@ func _physics_process(delta: float) -> void:
 
 # preloads for different attacks
 const melee_preload = preload("res://scenes/attacks/basic_melee.tscn")
+const ground_slam_preload = preload("res://scenes/attacks/ground_slam.tscn")
 
 # main inputs and attacks
 func _process(_delta):
@@ -101,3 +104,23 @@ func _process(_delta):
 		await get_tree().create_timer(0.25).timeout
 		is_attacking = false
 		remove_child(melee_attack)
+	
+	# ground slam attack
+	if Input.is_action_just_pressed("ground_slam") && !is_attacking && !is_on_floor():
+		# spawn hitbox and set positiong
+		ground_slam = ground_slam_preload.instantiate()
+		add_child(ground_slam)
+		slamming = true
+		
+		ground_slam.global_position = Vector2(self.global_position.x, self.global_position.y - 20)
+		
+		velocity.y = 1350
+	
+	# check when ground slam hits ground
+	if slamming && is_on_floor():
+		is_attacking = false
+		slamming = false
+		
+		# reset ground slam instance
+		ground_slam.queue_free()
+		ground_slam = null

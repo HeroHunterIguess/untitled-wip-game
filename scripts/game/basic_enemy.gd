@@ -10,6 +10,13 @@ func take_damage(amount):
 	print(health)
 	# hurt anim or sfx?
 
+func take_kb(force, is_right):
+	if is_right:
+		velocity.x += force
+	elif !is_right:
+		velocity.x -= force
+	velocity.y -= global.VERTICAL_KNOCKBACK
+
 # updating movement and physics every frame
 func _physics_process(delta: float) -> void:
 	

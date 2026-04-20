@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_vdjwq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpomu"]
-size = Vector2(28, 72)
+size = Vector2(28, 79)
 
 [node name="basic_melee" type="Area2D" unique_id=2095313411]
 script = ExtResource("1_tpomu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1187713770]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_tpomu")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=538671255]
