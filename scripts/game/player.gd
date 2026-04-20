@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 	# check if they are jumping & perform it
 	if (Input.is_action_pressed("jump")) && can_jump:
 		coyote_timer = 0.0
-		velocity.y -= JUMP_FORCE
+		velocity.y = -JUMP_FORCE
 	
 	# update position based on velocity
 	move_and_slide()
@@ -118,6 +118,8 @@ func _process(_delta):
 	
 	# check when ground slam hits ground
 	if slamming && is_on_floor():
+		velocity.y = -600
+		
 		is_attacking = false
 		slamming = false
 		
