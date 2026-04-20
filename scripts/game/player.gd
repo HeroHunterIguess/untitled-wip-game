@@ -99,9 +99,9 @@ func _process(_delta):
 
 		# spawn on correct side of player
 		if get_local_mouse_position().x > 0:
-			melee_attack.global_position = Vector2(self.global_position.x + 30, self.global_position.y)
+			melee_attack.global_position = Vector2(self.global_position.x + 35, self.global_position.y)
 		elif get_local_mouse_position().x < 0:
-			melee_attack.global_position = Vector2(self.global_position.x - 30, self.global_position.y)
+			melee_attack.global_position = Vector2(self.global_position.x - 35, self.global_position.y)
 		
 		await get_tree().create_timer(0.25).timeout
 		is_attacking = false

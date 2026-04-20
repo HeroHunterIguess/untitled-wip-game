@@ -27,3 +27,7 @@ func _physics_process(delta: float) -> void:
 	
 	# update position based on velocity
 	move_and_slide()
+
+func _process(_delta):
+	if (health < 0):
+		queue_free()
