@@ -70,13 +70,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		can_jump = false
 	
-	# check if they are jumping or buffering & perform it
-	# this holding jump system may be arbitrary, check if i can just check is_action_pressed() instead
-	if Input.is_action_pressed("jump"):
-		holding_jump = true
-	else:
-		holding_jump = false
-	if (Input.is_action_just_pressed("jump") || holding_jump) && can_jump:
+	# check if they are jumping & perform it
+	if (Input.is_action_pressed("jump")) && can_jump:
 		coyote_timer = 0.0
 		velocity.y -= JUMP_FORCE
 	
