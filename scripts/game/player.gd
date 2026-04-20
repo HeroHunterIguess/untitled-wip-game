@@ -55,6 +55,8 @@ func _physics_process(delta: float) -> void:
 			data.can_double_jump = false
 	
 	# add coyote time
+	# unnecessary with the current flat groud, may be changed later
+	# if the ground stays flat like it is, remove coyote time code
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME
 		data.can_double_jump = true
