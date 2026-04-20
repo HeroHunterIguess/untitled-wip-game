@@ -82,10 +82,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-#const tankEnemyPreload = preload("res://scenes/objects/enemy types/tank_enemy.tscn")
-#var tankEnemy = tankEnemyPreload.instantiate()
-#add_child(tankEnemy)
-
 # preloads for different attacks
 const melee_preload = preload("res://scenes/attacks/basic_melee.tscn")
 
@@ -95,9 +91,15 @@ func _process(_delta):
 	# spawn melee attack
 	if Input.is_action_just_pressed("melee") && !is_attacking:
 		var melee_attack = melee_preload.instantiate()
-		is_attacking = true
-		if moving_right:
-			pass
-		else:
-			pass
+		add_child(melee_attack)
 		
+		is_attacking = true
+		
+		if get_local_mouse_position().x > 0:
+			melee_attack.global_position = Vector2(self.global_position.x + 30, self.global_position.y)
+		elif get_local_mouse_position().x < 0:
+			melee_attack.global_position = Vector2(self.global_position.x - 30, self.global_position.y)
+		
+		await get_tree().create_timer(0.25).timeout
+		is_attacking = false
+		remove_child(melee_attack)

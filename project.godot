@@ -19,7 +19,10 @@ config/icon="res://icon.svg"
 
 global="*uid://11g5hwtlhpgy"
 data="*uid://bkpq6rfaymkgj"
-test="*uid://j6l0spdqblpk"
+
+[global_group]
+
+player=""
 
 [input]
 
