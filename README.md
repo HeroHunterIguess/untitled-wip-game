@@ -1,4 +1,4 @@
-# Untitled & Work-in-Progres Game
+# An Untitled & Work-in-Progres Game
 
 This is a 2D side view game with similar mechanics to 20MTD, and movement like YOMI hustle.
 
