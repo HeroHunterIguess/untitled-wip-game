@@ -40,14 +40,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, global.FRICTION * delta)
 	
-	# dash input
-	if Input.is_action_just_pressed("dash"): 
-		if data.dash_timer <= 0.0:
-			data.dash_timer = DASH_COOLDOWN
-			if moving_right:
-				velocity.x += DASH_FORCE
-			elif !moving_right:
-				velocity.x -= DASH_FORCE
+	# dash in direction last pressed
+	if Input.is_action_just_pressed("dash") && data.dash_timer <= 0.0: 
+		data.dash_timer = DASH_COOLDOWN
+		if moving_right:
+			velocity.x += DASH_FORCE
+		elif !moving_right:
+			velocity.x -= DASH_FORCE
 	
 	# double jumping
 	if Input.is_action_just_pressed("double jump"):
