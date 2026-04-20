@@ -71,6 +71,7 @@ func _physics_process(delta: float) -> void:
 		can_jump = false
 	
 	# check if they are jumping or buffering & perform it
+	# this holding jump system may be arbitrary, check if i can just check is_action_pressed() instead
 	if Input.is_action_pressed("jump"):
 		holding_jump = true
 	else:
@@ -95,7 +96,8 @@ func _process(_delta):
 		add_child(melee_attack)
 		
 		is_attacking = true
-		
+
+		# spawn on correct side of player
 		if get_local_mouse_position().x > 0:
 			melee_attack.global_position = Vector2(self.global_position.x + 30, self.global_position.y)
 		elif get_local_mouse_position().x < 0:
