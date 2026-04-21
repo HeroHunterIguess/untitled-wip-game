@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ds22x58gu42nr"]
+
+[ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_mmjb5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jionv"]
+radius = 16.0
+
+[node name="grenade" type="Area2D" unique_id=703206288]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=14583657]
+position = Vector2(-1.1920929e-07, -1.1920929e-07)
+scale = Vector2(0.21875001, 0.21875001)
+texture = ExtResource("1_mmjb5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1886365460]
+shape = SubResource("CircleShape2D_jionv")

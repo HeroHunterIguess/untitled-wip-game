@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cfdi5c3dfx8mp"]
+
+[ext_resource type="Texture2D" uid="uid://dwk04sooe337l" path="res://art/temporary art/plain color.png" id="1_i0gcf"]
+[ext_resource type="PackedScene" uid="uid://cg767ovvy5ane" path="res://scenes/player.tscn" id="2_kqbx0"]
+[ext_resource type="PackedScene" uid="uid://c1ndh4e5hiqgc" path="res://scenes/ui.tscn" id="3_v521s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_caik2"]
+size = Vector2(2944, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqbx0"]
+size = Vector2(216, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v521s"]
+size = Vector2(328, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3lhq"]
+size = Vector2(104, 32)
+
+[node name="forest_world" type="Node2D" unique_id=671118606]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1616143219]
+position = Vector2(576, 320)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1080901922]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=922903905]
+position = Vector2(1472, 616)
+shape = SubResource("RectangleShape2D_caik2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=5935330]
+position = Vector2(500, 573)
+shape = SubResource("RectangleShape2D_kqbx0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2064447227]
+position = Vector2(748, 564)
+shape = SubResource("RectangleShape2D_v521s")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1197612283]
+position = Vector2(52, 568)
+shape = SubResource("RectangleShape2D_t3lhq")
+
+[node name="temp textures" type="Node" parent="." unique_id=1490719101]
+
+[node name="PlainColor" type="Sprite2D" parent="temp textures" unique_id=1303076728]
+position = Vector2(1472, 616)
+scale = Vector2(3.68, 0.09999999)
+texture = ExtResource("1_i0gcf")
+
+[node name="PlainColor2" type="Sprite2D" parent="temp textures" unique_id=1947189449]
+position = Vector2(652, 584)
+scale = Vector2(0.65, 0.04000004)
+texture = ExtResource("1_i0gcf")
+
+[node name="PlainColor3" type="Sprite2D" parent="temp textures" unique_id=281768977]
+position = Vector2(748, 568)
+scale = Vector2(0.40999997, 0.039999973)
+texture = ExtResource("1_i0gcf")
+
+[node name="PlainColor4" type="Sprite2D" parent="temp textures" unique_id=254428917]
+position = Vector2(51.999996, 567.99994)
+scale = Vector2(0.13, 0.04000006)
+texture = ExtResource("1_i0gcf")
+
+[node name="player" parent="." unique_id=1754200920 instance=ExtResource("2_kqbx0")]
+position = Vector2(752, 512)
+
+[node name="UI" parent="." unique_id=337467620 instance=ExtResource("3_v521s")]

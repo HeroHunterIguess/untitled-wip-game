@@ -19,3 +19,4 @@ func _process(_delta):
 		$slam_text.text = "Slam? \n YES"
 	else:
 		$slam_text.text = "Slam? \n NO"
+	

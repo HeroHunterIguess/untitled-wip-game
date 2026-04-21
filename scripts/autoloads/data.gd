@@ -4,5 +4,6 @@ extends Node
 var dash_timer = 0.0
 var double_jumps = 2
 var slam_timer = 0.0
+var can_freeze = true
 
 var player_health = 100

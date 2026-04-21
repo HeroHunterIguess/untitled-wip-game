@@ -13,7 +13,7 @@ const DASH_FORCE = 1000
 
 const SLAM_COOLDOWN = 175
 const SLAM_FORCE = 1350
-const SLAM_REBOUNCE = 400
+const SLAM_REBOUNCE = 550
 
 const FREEZE_TIME = 1
 var frozen = false
@@ -33,6 +33,7 @@ func take_damage(amount):
 	if !dashing && !slamming:
 		data.player_health -= amount
 		# hurt sfx/animations here:
+
 
 # updating movement and physics every frame
 func _physics_process(delta: float) -> void:
@@ -78,8 +79,9 @@ func _physics_process(delta: float) -> void:
 				data.double_jumps -= 1
 		
 	# air freeze
-	if Input.is_action_just_pressed("air_freeze") && !is_on_floor():
+	if Input.is_action_just_pressed("air_freeze") && !is_on_floor() && data.can_freeze:
 		frozen = true
+		data.can_freeze = false
 		velocity.y = 0
 		velocity.x = 0
 		current_gravity = 0
@@ -92,6 +94,9 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME
 		data.double_jumps = MAX_DOUBLE_JUMPS
+		
+		# reset can_freeze if on ground
+		data.can_freeze = true
 	else: 
 		coyote_timer -= delta
 		if coyote_timer < 0:
@@ -109,11 +114,6 @@ func _physics_process(delta: float) -> void:
 	
 	# update position based on velocity
 	move_and_slide()
-	
-	
-	# temproary game pause
-	if Input.is_action_just_pressed("testing_pause"):
-		get_tree().paused = true
 
 
 # preloads for different attacks
@@ -122,6 +122,9 @@ const ground_slam_preload = preload("res://scenes/attacks/ground_slam.tscn")
 
 # main inputs and attacks
 func _process(_delta):
+	
+	# temp camera control:
+	get_parent().get_node("Camera2D").global_position.x = self.global_position.x
 	
 	# check if player dies
 	if data.player_health <= 0:
@@ -167,3 +170,6 @@ func _process(_delta):
 		# reset ground slam instance
 		ground_slam.queue_free()
 		ground_slam = null
+	
+	# spawn grenade
+	
