@@ -21,12 +21,18 @@ func take_kb(force, is_right):
 # updating movement and physics every frame
 func _physics_process(delta: float) -> void:
 	
-	# move random direction
+	# move roughly towards player but not fully
+	# this code is bad rn and needs to be fixed !!
 	var random_number = rng.randi_range(1,2)
 	if random_number == 1:
-		velocity.x = move_toward(velocity.x, -SOFT_SPEED_CAP, global.FRICTION * delta)
+		if data.player_health > 0:
+			if get_tree().root.find_child("player",true,false).to_local(self.global_position).x >= 0:
+				velocity.x = move_toward(velocity.x, -SOFT_SPEED_CAP, global.FRICTION * delta)
+			elif get_tree().root.find_child("player",true,false).to_local(self.global_position).x > 0:
+				velocity.x = move_toward(velocity.x, SOFT_SPEED_CAP, global.FRICTION * delta)
 	else:
-		velocity.x = move_toward(velocity.x, SOFT_SPEED_CAP, global.FRICTION * delta)
+		pass
+	
 	
 	# apply gravity
 	velocity.y += global.GRAVITY * delta

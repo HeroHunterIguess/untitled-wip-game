@@ -21,11 +21,13 @@ var can_jump = false
 # attack/ability related things
 var is_attacking = false
 var slamming = false
+var dashing = false
 var ground_slam = null
 
 func take_damage(amount):
-	data.player_health -= amount
-	# hurt sfx/animations here:
+	if !dashing && !slamming:
+		data.player_health -= amount
+		# hurt sfx/animations here:
 
 # updating movement and physics every frame
 func _physics_process(delta: float) -> void:
@@ -55,10 +57,13 @@ func _physics_process(delta: float) -> void:
 	# dash in direction last pressed
 	if Input.is_action_just_pressed("dash") && data.dash_timer <= 0.0: 
 		data.dash_timer = DASH_COOLDOWN
+		dashing = true
 		if moving_right:
 			velocity.x += DASH_FORCE
 		elif !moving_right:
 			velocity.x -= DASH_FORCE
+		await get_tree().create_timer(0.25).timeout
+		dashing = false
 	
 	# double jumping
 	if Input.is_action_just_pressed("double jump") && !slamming:

@@ -75,7 +75,7 @@ position = Vector2(1184, 544)
 [node name="enemies" type="Node" parent="." unique_id=2022920308]
 
 [node name="basic_enemy" parent="enemies" unique_id=1311455642 instance=ExtResource("3_rn7du")]
-position = Vector2(680, 416)
+position = Vector2(664, 376)
 
 [node name="basic_enemy2" parent="enemies" unique_id=974740863 instance=ExtResource("3_rn7du")]
 position = Vector2(736, 344)
@@ -84,6 +84,18 @@ position = Vector2(736, 344)
 position = Vector2(576, 360)
 
 [node name="basic_enemy4" parent="enemies" unique_id=852102516 instance=ExtResource("3_rn7du")]
-position = Vector2(880, 328)
+position = Vector2(840, 368)
+
+[node name="basic_enemy5" parent="enemies" unique_id=828065870 instance=ExtResource("3_rn7du")]
+position = Vector2(896, 368)
+
+[node name="basic_enemy6" parent="enemies" unique_id=750193496 instance=ExtResource("3_rn7du")]
+position = Vector2(952, 336)
+
+[node name="basic_enemy7" parent="enemies" unique_id=1860640216 instance=ExtResource("3_rn7du")]
+position = Vector2(792, 352)
+
+[node name="basic_enemy8" parent="enemies" unique_id=1798663777 instance=ExtResource("3_rn7du")]
+position = Vector2(1040, 352)
 
 [node name="UI" parent="." unique_id=337467620 instance=ExtResource("3_x4up3")]
