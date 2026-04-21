@@ -5,7 +5,7 @@ func _process(_delta):
 	$health.text = str(data.player_health) + " HP"
 	
 	# display ability statuses
-	if data.can_double_jump:
+	if data.double_jumps >= 0:
 		$double_jump_text.text = "Double Jump? \n YES"
 	else:
 		$double_jump_text.text = "Double Jump? \n NO"

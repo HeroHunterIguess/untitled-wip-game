@@ -12,15 +12,6 @@ position = Vector2(224, 544)
 
 [node name="objects" type="Node" parent="." unique_id=839775039]
 
-[node name="test_square" parent="objects" unique_id=974885529 instance=ExtResource("1_bl568")]
-position = Vector2(96, 608)
-
-[node name="test_square2" parent="objects" unique_id=534344318 instance=ExtResource("1_bl568")]
-position = Vector2(160, 608)
-
-[node name="test_square3" parent="objects" unique_id=755161920 instance=ExtResource("1_bl568")]
-position = Vector2(32, 608)
-
 [node name="test_square4" parent="objects" unique_id=1556825695 instance=ExtResource("1_bl568")]
 position = Vector2(224, 608)
 
@@ -33,26 +24,8 @@ position = Vector2(352, 608)
 [node name="test_square7" parent="objects" unique_id=1936689978 instance=ExtResource("1_bl568")]
 position = Vector2(416, 608)
 
-[node name="test_square8" parent="objects" unique_id=282541983 instance=ExtResource("1_bl568")]
-position = Vector2(544, 608)
-
-[node name="test_square9" parent="objects" unique_id=940555089 instance=ExtResource("1_bl568")]
-position = Vector2(608, 608)
-
 [node name="test_square10" parent="objects" unique_id=2048946928 instance=ExtResource("1_bl568")]
 position = Vector2(480, 608)
-
-[node name="test_square11" parent="objects" unique_id=110739827 instance=ExtResource("1_bl568")]
-position = Vector2(672, 608)
-
-[node name="test_square12" parent="objects" unique_id=2056850192 instance=ExtResource("1_bl568")]
-position = Vector2(736, 608)
-
-[node name="test_square13" parent="objects" unique_id=63912162 instance=ExtResource("1_bl568")]
-position = Vector2(800, 608)
-
-[node name="test_square14" parent="objects" unique_id=913707112 instance=ExtResource("1_bl568")]
-position = Vector2(864, 608)
 
 [node name="test_square15" parent="objects" unique_id=773325786 instance=ExtResource("1_bl568")]
 position = Vector2(928, 608)
@@ -95,6 +68,33 @@ position = Vector2(1184, 360)
 
 [node name="test_square28" parent="objects" unique_id=1863297787 instance=ExtResource("1_bl568")]
 position = Vector2(1184, 296)
+
+[node name="test_square29" parent="objects" unique_id=1086260622 instance=ExtResource("1_bl568")]
+position = Vector2(544, 592)
+
+[node name="test_square30" parent="objects" unique_id=1050272897 instance=ExtResource("1_bl568")]
+position = Vector2(608, 576)
+
+[node name="test_square31" parent="objects" unique_id=120971794 instance=ExtResource("1_bl568")]
+position = Vector2(672, 584)
+
+[node name="test_square32" parent="objects" unique_id=1855794518 instance=ExtResource("1_bl568")]
+position = Vector2(736, 592)
+
+[node name="test_square33" parent="objects" unique_id=1243685569 instance=ExtResource("1_bl568")]
+position = Vector2(800, 592)
+
+[node name="test_square34" parent="objects" unique_id=256372811 instance=ExtResource("1_bl568")]
+position = Vector2(864, 608)
+
+[node name="test_square35" parent="objects" unique_id=1569772746 instance=ExtResource("1_bl568")]
+position = Vector2(160, 576)
+
+[node name="test_square36" parent="objects" unique_id=1448002519 instance=ExtResource("1_bl568")]
+position = Vector2(96, 576)
+
+[node name="test_square37" parent="objects" unique_id=763411371 instance=ExtResource("1_bl568")]
+position = Vector2(32, 584)
 
 [node name="enemies" type="Node" parent="." unique_id=2022920308]
 

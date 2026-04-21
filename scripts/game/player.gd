@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 # movement related variables
+var current_gravity = global.GRAVITY
+
 const SOFT_SPEED_CAP = 420
 const JUMP_FORCE = 890
 const COYOTE_TIME = 0.085
+const MAX_DOUBLE_JUMPS = 2
 
 const DASH_COOLDOWN = 75
 const DASH_FORCE = 1000
@@ -12,6 +15,8 @@ const SLAM_COOLDOWN = 175
 const SLAM_FORCE = 1350
 const SLAM_REBOUNCE = 400
 
+const FREEZE_TIME = 1
+var frozen = false
 
 var coyote_timer = 0.0
 var holding_jump = false
@@ -37,46 +42,56 @@ func _physics_process(delta: float) -> void:
 	data.slam_timer -= 1
 	
 	# apply gravity
-	velocity.y += global.GRAVITY * delta
+	velocity.y += current_gravity * delta 
 	if velocity.y > global.TERMINAL_VELOCITY:
 		velocity.y = global.TERMINAL_VELOCITY
 	
-	# movement directions
-	if Input.is_action_pressed("left"):
-		velocity.x = move_toward(velocity.x, -SOFT_SPEED_CAP, global.FRICTION * delta)
-		moving_right = false
-	
-	elif Input.is_action_pressed("right"):
-		velocity.x = move_toward(velocity.x, SOFT_SPEED_CAP, global.FRICTION * delta)
-		moving_right = true
-	
-	# slow down player when there are no inputs
-	else:
-		velocity.x = move_toward(velocity.x, 0, global.FRICTION * delta)
-	
-	# dash in direction last pressed
-	if Input.is_action_just_pressed("dash") && data.dash_timer <= 0.0: 
-		data.dash_timer = DASH_COOLDOWN
-		dashing = true
-		if moving_right:
-			velocity.x += DASH_FORCE
-		elif !moving_right:
-			velocity.x -= DASH_FORCE
-		await get_tree().create_timer(0.25).timeout
-		dashing = false
-	
-	# double jumping
-	if Input.is_action_just_pressed("double jump") && !slamming:
-		if !is_on_floor() && data.can_double_jump:
-			velocity.y = -JUMP_FORCE
-			data.can_double_jump = false
+	if !frozen:
+		# movement directions
+		if Input.is_action_pressed("left"):
+			velocity.x = move_toward(velocity.x, -SOFT_SPEED_CAP, global.FRICTION * delta)
+			moving_right = false
+		
+		elif Input.is_action_pressed("right"):
+			velocity.x = move_toward(velocity.x, SOFT_SPEED_CAP, global.FRICTION * delta)
+			moving_right = true
+		
+		# slow down player when there are no inputs
+		else:
+			velocity.x = move_toward(velocity.x, 0, global.FRICTION * delta)
+		
+		# dash in direction last pressed
+		if Input.is_action_just_pressed("dash") && data.dash_timer <= 0.0: 
+			data.dash_timer = DASH_COOLDOWN
+			dashing = true
+			if moving_right:
+				velocity.x += DASH_FORCE
+			elif !moving_right:
+				velocity.x -= DASH_FORCE
+			await get_tree().create_timer(0.25).timeout
+			dashing = false
+		
+		# double jumping
+		if Input.is_action_just_pressed("double jump") && !slamming:
+			if !is_on_floor() && data.double_jumps > 0:
+				velocity.y = -JUMP_FORCE
+				data.double_jumps -= 1
+		
+	# air freeze
+	if Input.is_action_just_pressed("air_freeze") && !is_on_floor():
+		frozen = true
+		velocity.y = 0
+		velocity.x = 0
+		current_gravity = 0
+		
+		await get_tree().create_timer(FREEZE_TIME).timeout
+		frozen = false
+		current_gravity = global.GRAVITY
 	
 	# add coyote time
-	# unnecessary with the current flat groud, may be changed later
-	# if the ground stays flat like it is, remove coyote time code
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME
-		data.can_double_jump = true
+		data.double_jumps = MAX_DOUBLE_JUMPS
 	else: 
 		coyote_timer -= delta
 		if coyote_timer < 0:
@@ -94,6 +109,11 @@ func _physics_process(delta: float) -> void:
 	
 	# update position based on velocity
 	move_and_slide()
+	
+	
+	# temproary game pause
+	if Input.is_action_just_pressed("testing_pause"):
+		get_tree().paused = true
 
 
 # preloads for different attacks
