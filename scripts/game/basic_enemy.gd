@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-const SOFT_SPEED_CAP = 375
+const JUMP_FORCE = 550
+const SOFT_SPEED_CAP = 355
 const DAMAGE = 8
 
 var health = 100
@@ -22,17 +23,22 @@ func take_kb(force, is_right):
 func _physics_process(delta: float) -> void:
 	
 	# move roughly towards player but not fully
-	# this code is bad rn and needs to be fixed !!
-	var random_number = rng.randi_range(1,2)
-	if random_number == 1:
-		if data.player_health > 0:
-			if get_tree().root.find_child("player",true,false).to_local(self.global_position).x >= 0:
-				velocity.x = move_toward(velocity.x, -SOFT_SPEED_CAP, global.FRICTION * delta)
-			elif get_tree().root.find_child("player",true,false).to_local(self.global_position).x > 0:
-				velocity.x = move_toward(velocity.x, SOFT_SPEED_CAP, global.FRICTION * delta)
-	else:
-		pass
+	var random_number = rng.randi_range(1,3)
 	
+	if random_number == 1:
+		if get_tree().root.find_child("player",true,false).to_local(self.global_position).x >= 0:
+			velocity.x = move_toward(velocity.x, SOFT_SPEED_CAP, global.FRICTION * delta)
+		elif get_tree().root.find_child("player",true,false).to_local(self.global_position).x < 0:
+			velocity.x = move_toward(velocity.x, -SOFT_SPEED_CAP, global.FRICTION * delta)
+	else:
+		if get_tree().root.find_child("player",true,false).to_local(self.global_position).x >= 0:
+			velocity.x = move_toward(velocity.x, -SOFT_SPEED_CAP, global.FRICTION * delta)
+		elif get_tree().root.find_child("player",true,false).to_local(self.global_position).x < 0:
+			velocity.x = move_toward(velocity.x, SOFT_SPEED_CAP, global.FRICTION * delta)
+	
+	# jump if at wall/other enemy
+	if is_on_wall() && is_on_floor():
+		velocity.y -= JUMP_FORCE
 	
 	# apply gravity
 	velocity.y += global.GRAVITY * delta
