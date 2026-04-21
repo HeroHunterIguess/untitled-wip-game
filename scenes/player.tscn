@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
 size = Vector2(32, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(29.25, 62)
+
 [node name="player" type="CharacterBody2D" unique_id=1754200920 groups=["player"]]
 collision_layer = 2
 collision_mask = 2
@@ -16,6 +19,13 @@ shape = SubResource("RectangleShape2D_g2brh")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=2094496735]
 modulate = Color(0.6961696, 0.8367911, 1, 1)
-position = Vector2(0, 1.1920929e-06)
 scale = Vector2(0.25, 0.5)
 texture = ExtResource("1_3vyb7")
+
+[node name="damage_hitbox" type="Area2D" parent="." unique_id=1326191578]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_hitbox" unique_id=161834330]
+shape = SubResource("RectangleShape2D_g2els")
+debug_color = Color(0.9105063, 0.00010935307, 0.7315297, 0.41960785)

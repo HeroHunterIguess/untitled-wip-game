@@ -4,25 +4,35 @@ extends CharacterBody2D
 const SOFT_SPEED_CAP = 420
 const JUMP_FORCE = 890
 const COYOTE_TIME = 0.085
-const DASH_COOLDOWN = 100
+
+const DASH_COOLDOWN = 75
 const DASH_FORCE = 1000
+
+const SLAM_COOLDOWN = 175
+const SLAM_FORCE = 1350
+const SLAM_REBOUNCE = 400
+
 
 var coyote_timer = 0.0
 var holding_jump = false
-
 var moving_right = true
 var can_jump = false
 
+# attack/ability related things
 var is_attacking = false
 var slamming = false
-
 var ground_slam = null
+
+func take_damage(amount):
+	data.player_health -= amount
+	# hurt sfx/animations here:
 
 # updating movement and physics every frame
 func _physics_process(delta: float) -> void:
 	
-	# update dash timer
+	# update cooldowns/timers
 	data.dash_timer -= 1
+	data.slam_timer -= 1
 	
 	# apply gravity
 	velocity.y += global.GRAVITY * delta
@@ -51,7 +61,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x -= DASH_FORCE
 	
 	# double jumping
-	if Input.is_action_just_pressed("double jump"):
+	if Input.is_action_just_pressed("double jump") && !slamming:
 		if !is_on_floor() && data.can_double_jump:
 			velocity.y = -JUMP_FORCE
 			data.can_double_jump = false
@@ -106,7 +116,7 @@ func _process(_delta):
 		remove_child(melee_attack)
 	
 	# ground slam attack
-	if Input.is_action_just_pressed("ground_slam") && !is_attacking && !is_on_floor():
+	if Input.is_action_just_pressed("ground_slam") && !is_attacking && !is_on_floor() && data.slam_timer <= 0:
 		# spawn hitbox and set positiong
 		ground_slam = ground_slam_preload.instantiate()
 		add_child(ground_slam)
@@ -114,14 +124,15 @@ func _process(_delta):
 		
 		ground_slam.global_position = Vector2(self.global_position.x, self.global_position.y - 20)
 		
-		velocity.y = 1350
+		velocity.y = SLAM_FORCE
 	
 	# check when ground slam hits ground
 	if slamming && is_on_floor():
-		velocity.y = -600
+		velocity.y = -SLAM_REBOUNCE
 		
 		is_attacking = false
 		slamming = false
+		data.slam_timer = SLAM_COOLDOWN
 		
 		# reset ground slam instance
 		ground_slam.queue_free()

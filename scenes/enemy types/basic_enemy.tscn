@@ -24,3 +24,4 @@ texture = ExtResource("1_xjpoc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=2138496421]
 shape = SubResource("RectangleShape2D_xjpoc")
+debug_color = Color(0.8251935, 0.22585961, 0.80986995, 0.41960785)
