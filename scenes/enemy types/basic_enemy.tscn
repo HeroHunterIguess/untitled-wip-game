@@ -21,7 +21,11 @@ scale = Vector2(0.25, 0.375)
 texture = ExtResource("1_xjpoc")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=429958653]
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=2138496421]
 shape = SubResource("RectangleShape2D_xjpoc")
 debug_color = Color(0.8251935, 0.22585961, 0.80986995, 0.41960785)
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

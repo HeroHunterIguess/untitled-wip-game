@@ -98,6 +98,11 @@ const ground_slam_preload = preload("res://scenes/attacks/ground_slam.tscn")
 # main inputs and attacks
 func _process(_delta):
 	
+	# check if player dies
+	if data.player_health <= 0:
+		print("Player Died.")
+		get_tree().change_scene_to_file("res://scenes/menus/death_screen.tscn")
+	
 	# spawn melee attack
 	if Input.is_action_just_pressed("melee") && !is_attacking:
 		var melee_attack = melee_preload.instantiate()

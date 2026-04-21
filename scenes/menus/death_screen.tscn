@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://crx2vh4j0etfe"]
+
+[node name="death_screen" type="Node2D" unique_id=1075085636]
+
+[node name="Label" type="Label" parent="." unique_id=419388523]
+offset_left = 232.0
+offset_top = 160.0
+offset_right = 624.0
+offset_bottom = 424.0
+theme_override_font_sizes/font_size = 50
+text = "you are die."
