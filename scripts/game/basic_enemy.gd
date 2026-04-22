@@ -49,7 +49,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta):
-	if (health < 0):
+	# die if health is 0
+	if (health <= 0):
+		# anim/sfx?
 		queue_free()
 
 # deal damage to player when touched
