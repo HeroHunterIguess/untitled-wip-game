@@ -157,7 +157,7 @@ func _process(_delta):
 		remove_child(melee_attack)
 	
 	# ground slam attack
-	if Input.is_action_just_pressed("ground_slam") && !is_attacking && !is_on_floor() && data.slam_timer <= 0:
+	if Input.is_action_just_pressed("ground_slam") && !is_attacking && !is_on_floor() && data.slam_timer <= 0 && !frozen:
 		# spawn hitbox and set positiong
 		ground_slam = ground_slam_preload.instantiate()
 		add_child(ground_slam)
