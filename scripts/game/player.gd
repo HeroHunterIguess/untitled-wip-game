@@ -184,4 +184,4 @@ func _process(_delta):
 		var grenade = grenade_preload.instantiate()
 		add_child(grenade)
 		
-		
+		# give it initial velocity based on mouse position
