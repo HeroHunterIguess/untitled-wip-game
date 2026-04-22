@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const JUMP_FORCE = 550
-const SOFT_SPEED_CAP = 355
+const SOFT_SPEED_CAP = 325
 const DAMAGE = 8
 
 var health = 100
