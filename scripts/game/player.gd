@@ -29,6 +29,7 @@ var slamming = false
 var dashing = false
 var ground_slam = null
 
+
 func take_damage(amount):
 	if !dashing && !slamming:
 		data.player_health -= amount
@@ -39,6 +40,8 @@ func take_kb(force, is_right):
 		velocity.x += force
 	elif !is_right:
 		velocity.x -= force
+
+	# maybe change this to be player specific kb or a func parameter
 	velocity.y -= global.VERTICAL_KNOCKBACK
 
 
@@ -79,7 +82,7 @@ func _physics_process(delta: float) -> void:
 			await get_tree().create_timer(0.25).timeout
 			dashing = false
 		
-		# double jumping
+		# double/triple jumping
 		if Input.is_action_just_pressed("double jump") && !slamming:
 			if !is_on_floor() && data.double_jumps > 0:
 				velocity.y = -JUMP_FORCE
