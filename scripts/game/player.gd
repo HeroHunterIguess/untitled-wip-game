@@ -34,6 +34,13 @@ func take_damage(amount):
 		data.player_health -= amount
 		# hurt sfx/animations here:
 
+func take_kb(force, is_right):
+	if is_right:
+		velocity.x += force
+	elif !is_right:
+		velocity.x -= force
+	velocity.y -= global.VERTICAL_KNOCKBACK
+
 
 # updating movement and physics every frame
 func _physics_process(delta: float) -> void:
@@ -119,6 +126,7 @@ func _physics_process(delta: float) -> void:
 # preloads for different attacks
 const melee_preload = preload("res://scenes/attacks/basic_melee.tscn")
 const ground_slam_preload = preload("res://scenes/attacks/ground_slam.tscn")
+const grenade_preload = preload("res://scenes/attacks/grenade.tscn")
 
 # main inputs and attacks
 func _process(_delta):
@@ -172,4 +180,8 @@ func _process(_delta):
 		ground_slam = null
 	
 	# spawn grenade
-	
+	if Input.is_action_just_pressed("grenade"):
+		var grenade = grenade_preload.instantiate()
+		add_child(grenade)
+		
+		

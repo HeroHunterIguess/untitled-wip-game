@@ -1,16 +1,28 @@
 [gd_scene format=3 uid="uid://ds22x58gu42nr"]
 
+[ext_resource type="Script" uid="uid://bp1u6kmcrvwt7" path="res://scripts/game/grenade.gd" id="1_jionv"]
 [ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_mmjb5"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mmjb5"]
+radius = 24.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_jionv"]
-radius = 16.0
+radius = 144.0
 
-[node name="grenade" type="Area2D" unique_id=703206288]
+[node name="grenade" type="RigidBody2D" unique_id=1173475647]
+script = ExtResource("1_jionv")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=14583657]
-position = Vector2(-1.1920929e-07, -1.1920929e-07)
-scale = Vector2(0.21875001, 0.21875001)
+[node name="Icon" type="Sprite2D" parent="." unique_id=1018795479]
+position = Vector2(-2.3841858e-07, -2.3841858e-07)
+scale = Vector2(0.3125, 0.3125)
 texture = ExtResource("1_mmjb5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1886365460]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1562555570]
+shape = SubResource("CircleShape2D_mmjb5")
+
+[node name="explosion_radius" type="Area2D" parent="." unique_id=2090664838]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="explosion_radius" unique_id=913717367]
 shape = SubResource("CircleShape2D_jionv")
+
+[connection signal="area_entered" from="explosion_radius" to="." method="_on_explosion_radius_area_entered"]
