@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage = 50
+const DAMAGE = 50
 
 func _on_area_entered(area: Area2D) -> void:
-	area.get_parent().take_damage(damage)
+	area.get_parent().take_damage(DAMAGE)
