@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://bp1u6kmcrvwt7" path="res://scripts/game/grenade.gd" id="1_jionv"]
 [ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_mmjb5"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_r48dx"]
+radius = 25.298222
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_mmjb5"]
 radius = 24.0
 
@@ -17,6 +20,12 @@ position = Vector2(-2.3841858e-07, -2.3841858e-07)
 scale = Vector2(0.3125, 0.3125)
 texture = ExtResource("1_mmjb5")
 
+[node name="initial_hit" type="Area2D" parent="." unique_id=396992871]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="initial_hit" unique_id=274192363]
+shape = SubResource("CircleShape2D_r48dx")
+debug_color = Color(0.9291855, 3.2825174e-05, 0.6637146, 0.41960785)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1562555570]
 shape = SubResource("CircleShape2D_mmjb5")
 
@@ -24,5 +33,7 @@ shape = SubResource("CircleShape2D_mmjb5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="explosion_radius" unique_id=913717367]
 shape = SubResource("CircleShape2D_jionv")
+debug_color = Color(0.2576059, 0.59869266, 0.59152937, 0.41960785)
 
+[connection signal="area_entered" from="initial_hit" to="." method="_on_initial_hit_area_entered"]
 [connection signal="area_entered" from="explosion_radius" to="." method="_on_explosion_radius_area_entered"]
