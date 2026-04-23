@@ -6,7 +6,6 @@ var current_gravity = global.GRAVITY
 const SOFT_SPEED_CAP = 420
 const JUMP_FORCE = 890
 const COYOTE_TIME = 0.085
-const MAX_DOUBLE_JUMPS = 2
 
 const DASH_COOLDOWN = 75
 const DASH_FORCE = 1000
@@ -72,7 +71,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, global.FRICTION * delta)
 		
 		# dash in direction last pressed
-		if Input.is_action_just_pressed("dash") && data.dash_timer <= 0.0: 
+		if Input.is_action_just_pressed("dash") && data.dash_timer <= 0.0 && data.has_dash: 
 			data.dash_timer = DASH_COOLDOWN
 			dashing = true
 			if moving_right:
@@ -103,7 +102,7 @@ func _physics_process(delta: float) -> void:
 	# add coyote time
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME
-		data.double_jumps = MAX_DOUBLE_JUMPS
+		data.double_jumps = data.max_jumps
 		
 		# reset can_freeze if on ground
 		data.can_freeze = true
@@ -160,7 +159,7 @@ func _process(_delta):
 		remove_child(melee_attack)
 	
 	# ground slam attack
-	if Input.is_action_just_pressed("ground_slam") && !is_attacking && !is_on_floor() && data.slam_timer <= 0 && !frozen:
+	if Input.is_action_just_pressed("ground_slam") && !is_on_floor() && data.slam_timer <= 0 && !frozen && data.has_ground_slam:
 		# spawn hitbox and set positiong
 		ground_slam = ground_slam_preload.instantiate()
 		add_child(ground_slam)
@@ -183,7 +182,7 @@ func _process(_delta):
 		ground_slam = null
 	
 	# spawn grenade
-	if Input.is_action_just_pressed("grenade"):
+	if Input.is_action_just_pressed("grenade") && data.has_grenade:
 		var grenade = grenade_preload.instantiate()
 		add_child(grenade)
 		

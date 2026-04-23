@@ -17,7 +17,7 @@ func _physics_process(delta):
 	move_and_collide(velocity * delta)
 
 
-func _on_initial_hit_area_entered(area: Area2D) -> void:
+func _on_initial_hit_area_entered(_area: Area2D) -> void:
 	hit_something = true
 
 

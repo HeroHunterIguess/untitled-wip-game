@@ -7,3 +7,10 @@ var slam_timer = 0.0
 var can_freeze = true
 
 var player_health = 100
+
+
+# what does the player have unlocked
+var has_dash = false
+var has_ground_slam = false
+var has_grenade = false
+var max_jumps = 1
