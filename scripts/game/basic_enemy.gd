@@ -9,7 +9,6 @@ var rng = RandomNumberGenerator.new()
 
 func take_damage(amount):
 	health -= amount
-	print(health)
 	# hurt anim or sfx?
 
 func take_kb(force, is_right):
@@ -48,11 +47,21 @@ func _physics_process(delta: float) -> void:
 	# update position based on velocity
 	move_and_slide()
 
+# preload pickups
+const health_pickup_preload = preload("res://scenes/objects/health_pickup.tscn")
+
 func _process(_delta):
 	# die if health is 0
 	if (health <= 0):
-		# anim/sfx?
+		# sometimes drop health pickup
+		var random_number = rng.randi_range(1,3)
+		
+		if random_number == 1:
+			var health_pickup = health_pickup_preload.instantiate()
+			health_pickup.global_position = self.global_position
+		
 		queue_free()
+		# anim/sfx?
 
 # deal damage to player when touched
 func _on_hitbox_area_entered(area: Area2D) -> void:
