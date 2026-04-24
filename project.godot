@@ -20,6 +20,13 @@ config/icon="res://icon.svg"
 global="*uid://11g5hwtlhpgy"
 data="*uid://bkpq6rfaymkgj"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=4
+window/stretch/mode="viewport"
+
 [global_group]
 
 player=""

@@ -19,7 +19,7 @@ size = Vector2(104, 32)
 [node name="forest_world" type="Node2D" unique_id=671118606]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1616143219]
-position = Vector2(576, 320)
+position = Vector2(752, 504)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1080901922]
 collision_layer = 3
@@ -64,6 +64,6 @@ scale = Vector2(0.13, 0.04000006)
 texture = ExtResource("1_i0gcf")
 
 [node name="player" parent="." unique_id=1754200920 instance=ExtResource("2_kqbx0")]
-position = Vector2(752, 512)
+position = Vector2(752, 520)
 
 [node name="UI" parent="." unique_id=337467620 instance=ExtResource("3_v521s")]

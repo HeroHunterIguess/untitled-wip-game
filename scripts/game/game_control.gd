@@ -1,14 +1,20 @@
 extends Node2D
 
-var local_level = 1
 var start_time = Time.get_unix_time_from_system()
 var game_running = true
+
+const enemy_preload = preload("res://scenes/enemy types/basic_enemy.tscn")
 
 func _ready():
 	while game_running:
 		# spawn enemies based on time elapsed
+		var amount = (Time.get_unix_time_from_system() - start_time) / 5
+		
+		print(amount)
+		
+		for i in range(amount):
+			var enemy = enemy_preload.instantiate()
+			add_child(enemy) 
 		
 		# wait arbitrary amount of time then spawn more
-		
-		
-		pass
+		await get_tree().create_timer(5).timeout
