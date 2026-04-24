@@ -182,6 +182,7 @@ func _process(_delta):
 		ground_slam = null
 	
 	# spawn grenade
+	# GRENADE IS CURRENTLY BROKEN/UNFINISHED
 	if Input.is_action_just_pressed("grenade") && data.has_grenade:
 		var grenade = grenade_preload.instantiate()
 		add_child(grenade)
