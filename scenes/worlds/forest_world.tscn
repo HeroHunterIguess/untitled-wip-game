@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ndh4e5hiqgc" path="res://scenes/ui.tscn" id="3_v521s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_caik2"]
-size = Vector2(3904, 80)
+size = Vector2(4000, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqbx0"]
 size = Vector2(216, 10)
@@ -30,7 +30,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=922903905]
-position = Vector2(1952, 616)
+position = Vector2(2000, 616)
 shape = SubResource("RectangleShape2D_caik2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=5935330]
@@ -48,8 +48,8 @@ shape = SubResource("RectangleShape2D_t3lhq")
 [node name="temp textures" type="Node" parent="." unique_id=1490719101]
 
 [node name="PlainColor" type="Sprite2D" parent="temp textures" unique_id=1303076728]
-position = Vector2(1951.9999, 616)
-scale = Vector2(4.8799996, 0.09999999)
+position = Vector2(2000, 616)
+scale = Vector2(5, 0.09999999)
 texture = ExtResource("1_i0gcf")
 
 [node name="PlainColor2" type="Sprite2D" parent="temp textures" unique_id=1947189449]
