@@ -10,7 +10,7 @@ var player_health = 100
 
 
 # what does the player have unlocked
-var has_dash = false
-var has_ground_slam = false
+var has_dash = true
+var has_ground_slam = true
 var has_grenade = false
-var max_jumps = 1
+var max_jumps = 2
