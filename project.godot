@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 global="*uid://11g5hwtlhpgy"
 data="*uid://bkpq6rfaymkgj"
+enemy_methods="*uid://cdv2fmfqusiql"
 
 [display]
 
