@@ -26,6 +26,6 @@ texture = ExtResource("1_3vyb7")
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_hitbox" unique_id=161834330]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_hitbox" unique_id=161834330 groups=["player"]]
 shape = SubResource("RectangleShape2D_g2els")
 debug_color = Color(0.9105063, 0.00010935307, 0.7315297, 0.41960785)

@@ -59,6 +59,7 @@ func _process(_delta):
 		if random_number == 1:
 			var health_pickup = health_pickup_preload.instantiate()
 			health_pickup.global_position = self.global_position
+			get_parent().add_child(health_pickup)
 		
 		queue_free()
 		# anim/sfx?

@@ -140,6 +140,9 @@ func _process(_delta):
 	if data.player_health <= 0:
 		print("Player Died.")
 		get_tree().change_scene_to_file("res://scenes/menus/death_screen.tscn")
+	# keep max hp at 100
+	if data.player_health > 100:
+		data.player_health = 100
 	
 	# spawn melee attack
 	if Input.is_action_just_pressed("melee") && !is_attacking:
