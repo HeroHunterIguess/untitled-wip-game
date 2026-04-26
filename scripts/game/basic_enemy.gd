@@ -8,7 +8,7 @@ const DAMAGE = 8
 func _physics_process(delta: float) -> void:
 	
 	# move roughly towards player but not fully
-	var random_number = rng.randi_range(1,3)
+	var random_number = rng.randi_range(1, 3)
 	
 	if random_number == 1:
 		if get_tree().root.find_child("player",true,false).to_local(self.global_position).x >= 0:

@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var velocity = Vector2(0,0)
+var velocity = Vector2(0, 0)
 var is_on_floor = false
 var hit_something = false
 

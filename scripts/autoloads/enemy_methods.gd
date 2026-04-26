@@ -21,7 +21,7 @@ const health_pickup_preload = preload("res://scenes/objects/health_pickup.tscn")
 # kill enemy and maybe drop pickups
 func die():
 	# sometimes drop health pickup
-	var random_number = rng.randi_range(1,3)
+	var random_number = rng.randi_range(1, 3)
 	
 	if random_number == 1:
 		var health_pickup = health_pickup_preload.instantiate()
