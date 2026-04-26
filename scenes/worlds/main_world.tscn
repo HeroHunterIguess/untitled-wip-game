@@ -31,8 +31,8 @@ size = Vector2(4016, 24)
 script = ExtResource("1_w87fn")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1555532176]
-position = Vector2(2000, 7.9999695)
-scale = Vector2(31.25, 10.750001)
+position = Vector2(2000, 104.00002)
+scale = Vector2(31.25, 9.25)
 texture = ExtResource("5_y1qdg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1616143219]

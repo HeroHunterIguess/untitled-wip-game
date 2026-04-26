@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	if velocity.y > global.TERMINAL_VELOCITY:
 		velocity.y = global.TERMINAL_VELOCITY
 	
-	if !frozen:
+	if !frozen && !slamming:
 		# movement directions
 		if Input.is_action_pressed("left"):
 			velocity.x = move_toward(velocity.x, -SOFT_SPEED_CAP, global.FRICTION * delta)

@@ -19,14 +19,14 @@ func _ready():
 			var enemy = enemy_preload.instantiate()
 			add_child(enemy) 
 			var screen_width = get_viewport().size.x
-			var left_location = $player.global_position.x-screen_width-50
-			var right_location = $player.global_position.x+screen_width+50
+			var left_location = $player.global_position.x-screen_width-100
+			var right_location = $player.global_position.x+screen_width+100
 			
 			# spawn enemy off screen and vary random distance to have minimal overlap bugs
 			if left_location < 0:
-				enemy.global_position.x = right_location + rng.randi_range(0, 48)
+				enemy.global_position.x = right_location + rng.randi_range(0, 99)
 			if right_location > 4000:
-				enemy.global_position.x = left_location - rng.randi_range(0, 48)
+				enemy.global_position.x = left_location - rng.randi_range(0, 99)
 			
 			# set y to a value close to ground
 			enemy.global_position.y = 500
@@ -35,4 +35,4 @@ func _ready():
 		await get_tree().create_timer(5+round_bonus_time).timeout
 		
 		# add extra time for each round bc there will be more enemies
-		round_bonus_time += 0.15
+		round_bonus_time += 0.75

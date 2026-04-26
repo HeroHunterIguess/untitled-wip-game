@@ -62,7 +62,6 @@ func _process(_delta):
 			get_parent().add_child(health_pickup)
 		
 		queue_free()
-		# anim/sfx?
 
 # deal damage to player when touched
 func _on_hitbox_area_entered(area: Area2D) -> void:
