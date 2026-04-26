@@ -133,8 +133,13 @@ const grenade_preload = preload("res://scenes/attacks/grenade.tscn")
 # main inputs and attacks
 func _process(_delta):
 	
-	# temp camera control:
+	# camera control:
 	get_parent().get_node("Camera2D").global_position.x = self.global_position.x
+	
+	# lock camera at screen edges
+	# THIS IS BROKEN RN AND NEEDS TO BE FIXED
+	if (get_viewport().size.x / 2) - self.global_position.x < 0:
+		get_parent().get_node("Camera2D").global_position.x = get_viewport().size.x / 2
 	
 	# check if player dies
 	if data.player_health <= 0:
