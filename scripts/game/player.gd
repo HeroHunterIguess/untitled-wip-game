@@ -81,11 +81,16 @@ func _physics_process(delta: float) -> void:
 			await get_tree().create_timer(0.25).timeout
 			dashing = false
 		
-		# double/triple jumping
-		if Input.is_action_just_pressed("double jump") && !slamming:
-			if !is_on_floor() && data.double_jumps > 0:
-				velocity.y = -JUMP_FORCE
-				data.double_jumps -= 1
+	# double/triple jumping
+	if Input.is_action_just_pressed("double jump") && !slamming:
+		if !is_on_floor() && data.double_jumps > 0:
+			velocity.y = -JUMP_FORCE
+			data.double_jumps -= 1
+		
+		# if frozen then unfreeze
+		if frozen:
+			frozen = false
+			current_gravity = global.GRAVITY
 		
 	# air freeze
 	if Input.is_action_just_pressed("air_freeze") && !is_on_floor() && data.can_freeze:
@@ -153,7 +158,7 @@ func _process(_delta):
 		data.player_health = 100 
 	
 	# spawn melee attack
-	if Input.is_action_just_pressed("melee") && !is_attacking:
+	if Input.is_action_just_pressed("melee") && !is_attacking && !slamming:
 		var melee_attack = melee_preload.instantiate()
 		add_child(melee_attack)
 		
@@ -188,9 +193,10 @@ func _process(_delta):
 		slamming = false
 		data.slam_timer = SLAM_COOLDOWN
 		
-		# reset ground slam instance
-		ground_slam.queue_free()
-		ground_slam = null
+		# reset ground slam instance if it exists
+		if ground_slam:
+			ground_slam.queue_free()
+			ground_slam = null
 	
 	# spawn grenade
 	# GRENADE IS CURRENTLY BROKEN/UNFINISHED
