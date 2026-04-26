@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_vmwfw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8lmx5"]
-radius = 24.0
+radius = 25.298222
 
 [node name="health_pickup" type="Area2D" unique_id=1357647121]
 collision_layer = 6

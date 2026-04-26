@@ -1,7 +1,7 @@
 extends Area2D
 
 const DAMAGE = 50
-const KNOCKBACK = 300
+const KNOCKBACK = 270
 
 func _on_area_entered(area: Area2D) -> void:
 	var object = area.get_parent()
