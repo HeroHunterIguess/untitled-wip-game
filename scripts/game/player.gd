@@ -138,8 +138,11 @@ func _process(_delta):
 	
 	# lock camera at screen edges
 	# THIS IS BROKEN RN AND NEEDS TO BE FIXED
-	if (get_viewport().size.x / 2) - self.global_position.x < 0:
+	if (get_viewport().size.x / 2) + self.global_position.x > 4000:
+		get_parent().get_node("Camera2D").global_position.x = 4000 - get_viewport().size.x / 2
+	if self.global_position.x - (get_viewport().size.x / 2) < 0:
 		get_parent().get_node("Camera2D").global_position.x = get_viewport().size.x / 2
+
 	
 	# check if player dies
 	if data.player_health <= 0:

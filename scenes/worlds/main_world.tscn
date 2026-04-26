@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c1ndh4e5hiqgc" path="res://scenes/ui.tscn" id="2_y1qdg"]
 [ext_resource type="Texture2D" uid="uid://dwk04sooe337l" path="res://art/temporary art/plain color.png" id="3_aqpkv"]
 [ext_resource type="PackedScene" uid="uid://cg767ovvy5ane" path="res://scenes/player.tscn" id="4_hvjhl"]
+[ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="5_y1qdg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_caik2"]
 size = Vector2(4000, 80)
@@ -17,8 +18,22 @@ size = Vector2(328, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3lhq"]
 size = Vector2(104, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w87fn"]
+size = Vector2(16, 1128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1qdg"]
+size = Vector2(16, 1104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqpkv"]
+size = Vector2(4016, 24)
+
 [node name="main_world" type="Node2D" unique_id=671118606]
 script = ExtResource("1_w87fn")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1555532176]
+position = Vector2(2000, 7.9999695)
+scale = Vector2(31.25, 10.750001)
+texture = ExtResource("5_y1qdg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1616143219]
 position = Vector2(872, 112)
@@ -44,6 +59,18 @@ shape = SubResource("RectangleShape2D_v521s")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1197612283]
 position = Vector2(52, 568)
 shape = SubResource("RectangleShape2D_t3lhq")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1826447023]
+position = Vector2(-8, 92)
+shape = SubResource("RectangleShape2D_w87fn")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=2031205457]
+position = Vector2(4008, 104)
+shape = SubResource("RectangleShape2D_y1qdg")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=910603969]
+position = Vector2(2008, -460)
+shape = SubResource("RectangleShape2D_aqpkv")
 
 [node name="temp textures" type="Node" parent="." unique_id=1490719101]
 
