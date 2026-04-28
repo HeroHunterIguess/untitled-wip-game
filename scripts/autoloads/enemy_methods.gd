@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-# has all the base methods for enemy types etc
-var health = 100
 
-func take_damage(amount):
+# has all the base methods for enemy types etc
+
+func take_damage(health, amount):
 	health -= amount
+	return health
 	# hurt anim or sfx?
 
 func take_kb(force, is_right):

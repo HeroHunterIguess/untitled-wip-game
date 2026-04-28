@@ -25,12 +25,15 @@ func _on_initial_hit_area_entered(_area: Area2D) -> void:
 func _on_explosion_radius_area_entered(area: Area2D) -> void:
 	# UPDATE THIS TO ENSURE ITS NOT CALLING FUNCTIONS ON ANOTHER GRENADE INSTANCE WHICH ERRORS
 	if !area.is_in_group("player") && hit_something:
-		area.get_parent().take_damage(DAMAGE)
+		var object = area.get_parent()
 		
+		if object.has_method("take_damage"):
+			object.health = object.take_damage(object.health, DAMAGE)
 		
-		if area.to_local(self.global_position).x >= 0:
-			area.get_parent().take_kb(KNOCKBACK, false)
-		else: 
-			area.get_parent().take_kb(KNOCKBACK, true)
-			
+		if object.has_method("take_kb"):
+			if area.to_local(self.global_position).x >= 0:
+				object.take_kb(KNOCKBACK, false)
+			else: 
+				object.take_kb(KNOCKBACK, true)
+				
 		queue_free()

@@ -8,7 +8,7 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	# deal damage to the enemy
 	if object.has_method("take_damage"):
-		object.take_damage(DAMAGE)
+		object.health = object.take_damage(object.health, DAMAGE)
 	
 	# knock enemy back
 	if object.has_method("take_kb"):

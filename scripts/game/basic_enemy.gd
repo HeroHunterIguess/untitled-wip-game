@@ -4,6 +4,8 @@ const JUMP_FORCE = 550
 const SOFT_SPEED_CAP = 325
 const DAMAGE = 8
 
+var health = 100
+
 # updating movement and physics every frame
 func _physics_process(delta: float) -> void:
 	

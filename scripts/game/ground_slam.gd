@@ -6,15 +6,16 @@ const KNOCKBACK = 1250
 func _on_area_entered(area: Area2D) -> void:
 	# damage things in area
 	if !area.is_in_group("player"):
-		if area.get_parent().has_method("take_damage"):
-			area.get_parent().take_damage(DAMAGE)
+		var object = area.get_parent()
+		if object.has_method("take_damage"):
+			object.health = object.take_damage(object.health, DAMAGE)
 		
 		if area.to_local(self.global_position).x >= 0:
-			if area.get_parent().has_method("take_kb"):
-				area.get_parent().take_kb(KNOCKBACK, false)
+			if object.has_method("take_kb"):
+				object.take_kb(KNOCKBACK, false)
 		else: 
-			if area.get_parent().has_method("take_kb"):
-				area.get_parent().take_kb(KNOCKBACK, true)
+			if object.has_method("take_kb"):
+				object.take_kb(KNOCKBACK, true)
 	
 	# automatically disapear after a short period to prevent weird bugs of it not disapearing
 	await get_tree().create_timer(0.75).timeout
