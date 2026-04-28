@@ -46,4 +46,4 @@ func _process(_delta):
 # deal damage to player when touched
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
-		area.get_parent().take_damage(DAMAGE)
+		area.get_parent().take_dmg(DAMAGE)

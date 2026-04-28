@@ -29,7 +29,7 @@ var dashing = false
 var ground_slam = null
 
 
-func take_damage(amount):
+func take_dmg(amount):
 	if !dashing && !slamming:
 		data.player_health -= amount
 		# hurt sfx/animations here:
