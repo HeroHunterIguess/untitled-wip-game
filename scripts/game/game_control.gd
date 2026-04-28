@@ -31,8 +31,6 @@ func _ready():
 		var amount = (Time.get_unix_time_from_system() - start_time) / 10
 		var burst_amount = (Time.get_unix_time_from_system() - start_time) / 20
 		
-		print(amount)
-		
 		# spawn basic enemies
 		for i in range(amount):
 			var enemy = enemy_preload.instantiate()
