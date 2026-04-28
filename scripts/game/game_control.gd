@@ -7,31 +7,45 @@ var round_bonus_time = 0
 var rng = RandomNumberGenerator.new()
 
 const enemy_preload = preload("res://scenes/enemy types/basic_enemy.tscn")
+const burst_enemy_preload = preload("res://scenes/enemy types/burst_enemy.tscn")
+
+func set_location(object):
+	var screen_width = get_viewport().size.x
+	var left_location = $player.global_position.x-screen_width - 100
+	var right_location = $player.global_position.x+screen_width + 100
+	
+	# spawn enemy off screen and vary random distance to have minimal overlap bugs
+	
+	# i need to save the location of the last one so i can vary it to ensure they never have the overlap speed bug
+	if left_location < 0:
+		object.global_position.x = right_location + rng.randi_range(0, 99)
+	if right_location > 4000:
+		object.global_position.x = left_location - rng.randi_range(0, 99)
+	
+	# set y to a value close to ground
+	object.global_position.y = 500
 
 func _ready():
 	while game_running:
 		# spawn enemies based on time elapsed
 		var amount = (Time.get_unix_time_from_system() - start_time) / 10
+		var burst_amount = (Time.get_unix_time_from_system() - start_time) / 20
 		
 		print(amount)
 		
+		# spawn basic enemies
 		for i in range(amount):
 			var enemy = enemy_preload.instantiate()
 			add_child(enemy) 
-			var screen_width = get_viewport().size.x
-			var left_location = $player.global_position.x-screen_width - 100
-			var right_location = $player.global_position.x+screen_width + 100
 			
-			# spawn enemy off screen and vary random distance to have minimal overlap bugs
+			set_location(enemy)
+		
+		# spawn burst enemies
+		for i in range(burst_amount):
+			var burst_enemy = burst_enemy_preload.instantiate()
+			add_child(burst_enemy)
 			
-			# i need to save the location of the last one so i can vary it to ensure they never have the overlap speed bug
-			if left_location < 0:
-				enemy.global_position.x = right_location + rng.randi_range(0, 99)
-			if right_location > 4000:
-				enemy.global_position.x = left_location - rng.randi_range(0, 99)
-			
-			# set y to a value close to ground
-			enemy.global_position.y = 500
+			set_location(burst_enemy)
 		
 		# wait arbitrary amount of time then spawn more
 		await get_tree().create_timer(5 + round_bonus_time).timeout
