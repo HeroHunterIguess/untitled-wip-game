@@ -147,6 +147,7 @@ func _physics_process(delta: float) -> void:
 const melee_preload = preload("res://scenes/attacks/basic_melee.tscn")
 const ground_slam_preload = preload("res://scenes/attacks/ground_slam.tscn")
 const grenade_preload = preload("res://scenes/attacks/grenade.tscn")
+const burst_preload = preload("res://scenes/attacks/burst_attack.tscn")
 
 # main inputs and attacks
 func _process(_delta):
@@ -203,6 +204,15 @@ func _process(_delta):
 	if Input.is_action_just_pressed("grenade") && data.has_grenade:
 		var grenade = grenade_preload.instantiate()
 		add_child(grenade)
+		# give it initial velocity based on mouse position
 	
 	# spawn in burst attack
-		# give it initial velocity based on mouse position
+	if Input.is_action_just_pressed("burst") && !is_attacking:
+		var burst = burst_preload.instantiate()
+		add_child(burst)
+		
+		is_attacking = true
+		
+		await get_tree().create_timer(0.15).timeout
+		burst.queue_free()
+		is_attacking = false
