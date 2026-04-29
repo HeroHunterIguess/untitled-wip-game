@@ -42,7 +42,6 @@ func _process(_delta):
 	if (health <= 0):
 		die()
 
-# THIS ISNT WORKING RN AND IDFK WHY THE HELL IT WONT COLLIDE LIKE WHATHTHETHEHH THEEE FCKKKKKK
 # deal damage to player when touched
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
