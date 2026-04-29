@@ -6,8 +6,8 @@ var round_bonus_time = 0
 
 var rng = RandomNumberGenerator.new()
 
-const enemy_preload = preload("res://scenes/enemy types/basic_enemy.tscn")
-const burst_enemy_preload = preload("res://scenes/enemy types/burst_enemy.tscn")
+const enemy_preload = preload("res://scenes/enemy_types/basic_enemy.tscn")
+const burst_enemy_preload = preload("res://scenes/enemy_types/burst_enemy.tscn")
 
 func set_location(object):
 	var screen_width = get_viewport().size.x

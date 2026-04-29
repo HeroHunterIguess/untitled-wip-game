@@ -150,7 +150,7 @@ func _physics_process(delta: float) -> void:
 const melee_preload = preload("res://scenes/attacks/basic_melee.tscn")
 const ground_slam_preload = preload("res://scenes/attacks/ground_slam.tscn")
 const grenade_preload = preload("res://scenes/attacks/grenade.tscn")
-const burst_preload = preload("res://scenes/attacks/burst_attack.tscn")
+const burst_preload = preload("res://scenes/attacks/player_burst_attack.tscn")
 
 # main inputs and attacks
 func _process(_delta):
