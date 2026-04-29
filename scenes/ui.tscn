@@ -8,26 +8,30 @@ script = ExtResource("1_nt7q6")
 [node name="double_jump_text" type="Label" parent="." unique_id=51548743]
 offset_right = 128.0
 offset_bottom = 64.0
-text = "double jump?
-yes"
+text = "Double jump?
+YES"
 
 [node name="dash_text" type="Label" parent="." unique_id=862384000]
 offset_top = 64.0
 offset_right = 128.0
 offset_bottom = 128.0
-text = "dash?
-yes"
+text = "Dash?
+YES"
 
 [node name="slam_text" type="Label" parent="." unique_id=417815571]
 offset_top = 128.0
 offset_right = 128.0
 offset_bottom = 192.0
-text = "slam?
-yes"
+text = "Slam?
+YES"
 
 [node name="burst_text" type="Label" parent="." unique_id=1559196530]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_top = 192.0
+offset_right = 128.0
+offset_bottom = 256.0
+text = "Burst?
+YES
+"
 
 [node name="health" type="Label" parent="." unique_id=1628544038]
 offset_left = 1024.0
