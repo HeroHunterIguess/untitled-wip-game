@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds22x58gu42nr"]
 
-[ext_resource type="Script" uid="uid://bp1u6kmcrvwt7" path="res://scripts/game/grenade.gd" id="1_jionv"]
+[ext_resource type="Script" uid="uid://bp1u6kmcrvwt7" path="res://scripts/game/attacks/grenade.gd" id="1_jionv"]
 [ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_mmjb5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r48dx"]

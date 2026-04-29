@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://27g8b8uxmqqh"]
 
-[ext_resource type="Script" uid="uid://b2r54vmy1n1xi" path="res://scripts/game/attacks/burst_attack.gd" id="1_oj1lc"]
+[ext_resource type="Script" uid="uid://b2r54vmy1n1xi" path="res://scripts/game/attacks/player_burst_attack.gd" id="1_oj1lc"]
 [ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_qpch6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qt26n"]

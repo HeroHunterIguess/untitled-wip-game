@@ -1,6 +1,7 @@
 extends Area2D
 
 const DAMAGE = 40
+const PLAYER_DAMAGE = 10
 const KNOCKBACK = 1250
 
 func _on_area_entered(area: Area2D) -> void:
