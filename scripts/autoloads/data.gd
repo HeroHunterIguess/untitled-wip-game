@@ -4,6 +4,7 @@ extends Node
 var dash_timer = 0.0
 var double_jumps = 2
 var slam_timer = 0.0
+var burst_timer = 0.0
 var can_freeze = true
 
 var player_health = 100
@@ -13,4 +14,5 @@ var player_health = 100
 var has_dash = true
 var has_ground_slam = true
 var has_grenade = false
+var has_burst = true
 var max_jumps = 2

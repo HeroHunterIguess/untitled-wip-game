@@ -14,6 +14,8 @@ const SLAM_COOLDOWN = 175
 const SLAM_FORCE = 1350
 const SLAM_REBOUNCE = 550
 
+const BURST_COOLDOWN = 200
+
 const FREEZE_TIME = 1
 var frozen = false
 
@@ -50,6 +52,7 @@ func _physics_process(delta: float) -> void:
 	# update cooldowns/timers
 	data.dash_timer -= 1
 	data.slam_timer -= 1
+	data.burst_timer -= 1
 	
 	# apply gravity
 	velocity.y += current_gravity * delta 
@@ -207,10 +210,11 @@ func _process(_delta):
 		# give it initial velocity based on mouse position
 	
 	# spawn in burst attack
-	if Input.is_action_just_pressed("burst") && !is_attacking:
+	if Input.is_action_just_pressed("burst") && !is_attacking && data.has_burst && data.burst_timer <= 0:
 		var burst = burst_preload.instantiate()
 		add_child(burst)
 		
+		data.burst_timer = BURST_COOLDOWN
 		is_attacking = true
 		
 		await get_tree().create_timer(0.15).timeout

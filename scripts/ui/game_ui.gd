@@ -20,3 +20,5 @@ func _process(_delta):
 	else:
 		$slam_text.text = "Slam? \n NO"
 	
+	#if data.burst_timer <= 0:
+		

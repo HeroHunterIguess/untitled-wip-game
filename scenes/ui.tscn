@@ -25,6 +25,10 @@ offset_bottom = 192.0
 text = "slam?
 yes"
 
+[node name="burst_text" type="Label" parent="." unique_id=1559196530]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="health" type="Label" parent="." unique_id=1628544038]
 offset_left = 1024.0
 offset_right = 1152.0
