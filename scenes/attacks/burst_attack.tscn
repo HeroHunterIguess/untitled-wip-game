@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://27g8b8uxmqqh"]
+
+[ext_resource type="Script" uid="uid://b2r54vmy1n1xi" path="res://scripts/game/attacks/burst_attack.gd" id="1_oj1lc"]
+[ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_qpch6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qt26n"]
+radius = 64.0
+
+[node name="burst_attack" type="Area2D" unique_id=78801715]
+script = ExtResource("1_oj1lc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1568914869]
+shape = SubResource("CircleShape2D_qt26n")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=624319707]
+position = Vector2(-2.2737368e-13, -2.2737368e-13)
+scale = Vector2(0.74999994, 0.74999994)
+texture = ExtResource("1_qpch6")
+
+[node name="Icon2" type="Sprite2D" parent="." unique_id=75355069]
+position = Vector2(-3.33786e-06, -56.000004)
+scale = Vector2(0.49999997, 0.124999985)
+texture = ExtResource("1_qpch6")
+
+[node name="Icon5" type="Sprite2D" parent="." unique_id=1953907637]
+position = Vector2(1.430511e-06, 55.999996)
+scale = Vector2(0.49999997, 0.124999985)
+texture = ExtResource("1_qpch6")
+
+[node name="Icon4" type="Sprite2D" parent="." unique_id=1146110552]
+position = Vector2(56, -3.9999974)
+scale = Vector2(0.12499997, 0.4375)
+texture = ExtResource("1_qpch6")
+
+[node name="Icon3" type="Sprite2D" parent="." unique_id=831506363]
+position = Vector2(-56, -4.000002)
+scale = Vector2(0.12500004, 0.4375)
+texture = ExtResource("1_qpch6")

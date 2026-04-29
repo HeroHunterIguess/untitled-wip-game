@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgk1i216ljoa8"]
 
-[ext_resource type="Script" uid="uid://ub1eypb4v00q" path="res://scripts/game/basic_melee.gd" id="1_tpomu"]
+[ext_resource type="Script" uid="uid://ub1eypb4v00q" path="res://scripts/game/attacks/basic_melee.gd" id="1_tpomu"]
 [ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_vdjwq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpomu"]
