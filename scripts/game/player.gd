@@ -104,6 +104,19 @@ func _physics_process(delta: float) -> void:
 		frozen = false
 		current_gravity = global.GRAVITY
 	
+	# check when ground slam hits ground
+	if slamming && is_on_floor():
+		velocity.y = -SLAM_REBOUNCE
+		
+		is_attacking = false
+		slamming = false
+		data.slam_timer = SLAM_COOLDOWN
+		
+		# reset ground slam instance if it exists
+		if ground_slam:
+			ground_slam.queue_free()
+			ground_slam = null
+	
 	# add coyote time
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME
@@ -184,19 +197,6 @@ func _process(_delta):
 		ground_slam.global_position = Vector2(self.global_position.x, self.global_position.y - 20)
 		
 		velocity.y = SLAM_FORCE
-	
-	# check when ground slam hits ground
-	if slamming && is_on_floor():
-		velocity.y = -SLAM_REBOUNCE
-		
-		is_attacking = false
-		slamming = false
-		data.slam_timer = SLAM_COOLDOWN
-		
-		# reset ground slam instance if it exists
-		if ground_slam:
-			ground_slam.queue_free()
-			ground_slam = null
 	
 	# spawn grenade
 	# GRENADE IS CURRENTLY BROKEN/UNFINISHED

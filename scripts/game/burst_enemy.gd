@@ -25,7 +25,6 @@ func _physics_process(delta: float) -> void:
 		elif get_tree().root.find_child("player",true,false).to_local(self.global_position).x < 0:
 			velocity.x = move_toward(velocity.x, SOFT_SPEED_CAP, global.FRICTION * delta)
 	
-	# MIGHT REMOVE THIS FOR THIS ENEMY TYPE SO IT DOESNT PILE UP THE SAME WAY
 	# jump if at wall/other enemy
 	if is_on_wall() && is_on_floor():
 		velocity.y -= JUMP_FORCE
@@ -43,6 +42,7 @@ func _process(_delta):
 	if (health <= 0):
 		die()
 
+# I THINK THIS ISNT WORKING RN
 # deal damage to player when touched
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):

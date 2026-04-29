@@ -5,8 +5,8 @@ const KNOCKBACK = 1250
 
 func _on_area_entered(area: Area2D) -> void:
 	# damage things in area
-	if !area.is_in_group("player"):
-		var object = area.get_parent()
+	var object = area.get_parent()
+	if !object.is_in_group("player"):
 		if object.has_method("take_damage"):
 			object.health = object.take_damage(object.health, DAMAGE)
 		
