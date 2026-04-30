@@ -1,6 +1,6 @@
 extends Area2D
 
-const DAMAGE = 15
+const DAMAGE = 12
 const KNOCKBACK = 1175
 
 func _on_area_entered(area: Area2D) -> void:
@@ -18,4 +18,4 @@ func _on_area_entered(area: Area2D) -> void:
 				object.take_kb(KNOCKBACK, true)
 	
 	await get_tree().create_timer(0.15).timeout
-	queue_free()
+	self.queue_free()

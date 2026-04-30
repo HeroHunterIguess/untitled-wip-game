@@ -10,7 +10,7 @@ size = Vector2(48, 48)
 size = Vector2(50, 50)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0to3"]
-radius = 64.0
+radius = 60.926186
 
 [node name="burst_enemy" type="CharacterBody2D" unique_id=2141503813]
 script = ExtResource("1_fkmm3")

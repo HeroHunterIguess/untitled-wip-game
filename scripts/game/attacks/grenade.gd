@@ -20,12 +20,11 @@ func _physics_process(delta):
 func _on_initial_hit_area_entered(_area: Area2D) -> void:
 	hit_something = true
 
-
 # explode when it hits an enemy
 func _on_explosion_radius_area_entered(area: Area2D) -> void:
 	# UPDATE THIS TO ENSURE ITS NOT CALLING FUNCTIONS ON ANOTHER GRENADE INSTANCE WHICH ERRORS
-	if !area.is_in_group("player") && hit_something:
-		var object = area.get_parent()
+	var object = area.get_parent()
+	if !object.is_in_group("player") && hit_something:
 		
 		if object.has_method("take_damage"):
 			object.health = object.take_damage(object.health, DAMAGE)
