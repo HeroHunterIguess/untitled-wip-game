@@ -6,6 +6,7 @@ var double_jumps = 2
 var slam_timer = 0.0
 var burst_timer = 0.0
 var can_freeze = true
+var slamming = false
 
 var player_health = 100
 

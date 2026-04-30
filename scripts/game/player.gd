@@ -26,13 +26,12 @@ var can_jump = false
 
 # attack/ability related things
 var is_attacking = false
-var slamming = false
 var dashing = false
 var ground_slam = null
 
 
 func take_dmg(amount):
-	if !dashing && !slamming:
+	if !dashing && !data.slamming:
 		data.player_health -= amount
 		# hurt sfx/animations here:
 
@@ -59,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	if velocity.y > global.TERMINAL_VELOCITY:
 		velocity.y = global.TERMINAL_VELOCITY
 	
-	if !frozen && !slamming:
+	if !frozen && !data.slamming:
 		# movement directions
 		if Input.is_action_pressed("left"):
 			velocity.x = move_toward(velocity.x, -SOFT_SPEED_CAP, global.FRICTION * delta)
@@ -85,7 +84,7 @@ func _physics_process(delta: float) -> void:
 			dashing = false
 		
 	# double/triple jumping
-	if Input.is_action_just_pressed("double jump") && !slamming:
+	if Input.is_action_just_pressed("double jump") && !data.slamming:
 		if !is_on_floor() && data.double_jumps > 0:
 			velocity.y = -JUMP_FORCE
 			data.double_jumps -= 1
@@ -108,11 +107,11 @@ func _physics_process(delta: float) -> void:
 		current_gravity = global.GRAVITY
 	
 	# check when ground slam hits ground
-	if slamming && is_on_floor():
+	if data.slamming && is_on_floor():
 		velocity.y = -SLAM_REBOUNCE
 		
 		is_attacking = false
-		slamming = false
+		data.slamming = false
 		data.slam_timer = SLAM_COOLDOWN
 		
 		# reset ground slam instance if it exists
@@ -175,7 +174,7 @@ func _process(_delta):
 		data.player_health = 100 
 	
 	# spawn melee attack
-	if Input.is_action_just_pressed("melee") && !is_attacking && !slamming:
+	if Input.is_action_just_pressed("melee") && !is_attacking && !data.slamming:
 		var melee_attack = melee_preload.instantiate()
 		add_child(melee_attack)
 		
@@ -196,7 +195,7 @@ func _process(_delta):
 		# spawn hitbox and set positiong
 		ground_slam = ground_slam_preload.instantiate()
 		add_child(ground_slam)
-		slamming = true
+		data.slamming = true
 		
 		ground_slam.global_position = Vector2(self.global_position.x, self.global_position.y - 20)
 		

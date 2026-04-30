@@ -1,12 +1,20 @@
 extends Area2D
 
-const DAMAGE = 12
-const KNOCKBACK = 1175
+const DAMAGE = 10
+const KNOCKBACK = 1050
+
+var initial_position
+
+func _ready():
+	initial_position = self.global_position
+
+func _process(_delta):
+	self.global_position = initial_position
 
 func _on_area_entered(area: Area2D) -> void:
 	# damage things in area
 	var object = area.get_parent()
-	if object.is_in_group("player"):
+	if object.is_in_group("player") && !data.slamming:
 		if object.has_method("take_dmg"):
 			object.take_dmg(DAMAGE)
 		

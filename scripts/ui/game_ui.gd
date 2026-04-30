@@ -5,7 +5,7 @@ func _process(_delta):
 	$health.text = str(data.player_health) + " HP"
 	
 	# display ability statuses
-	if data.double_jumps >= 0:
+	if data.double_jumps > 0:
 		$double_jump_text.text = "Double Jump? \n YES"
 		$double_jump_text.set("theme_override_colors/font_color", Color(0, 1, 0))
 	else:

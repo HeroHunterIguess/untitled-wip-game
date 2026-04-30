@@ -7,5 +7,14 @@ offset_left = 232.0
 offset_top = 160.0
 offset_right = 624.0
 offset_bottom = 424.0
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 text = "you are die."
+
+[node name="Label2" type="Label" parent="." unique_id=1056054611]
+offset_left = 344.0
+offset_top = 480.0
+offset_right = 1700.0
+offset_bottom = 648.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Zǎoshang hǎo zhōng guó, Xiànzài wǒ yǒu bīng qíl ín, Wǒ hěn xǐhuān bīng qí lín "
