@@ -1,6 +1,6 @@
 extends Area2D
 
-const HEALING = 3
+const HEALING = 5
 
 
 func _on_area_entered(area: Area2D) -> void:

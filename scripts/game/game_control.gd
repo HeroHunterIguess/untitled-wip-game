@@ -49,4 +49,4 @@ func _ready():
 		await get_tree().create_timer(5 + round_bonus_time).timeout
 		
 		# add extra time for each round bc there will be more enemies
-		round_bonus_time += 0.78
+		round_bonus_time += 0.95
