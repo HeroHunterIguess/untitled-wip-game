@@ -181,7 +181,7 @@ func _process(_delta):
 		add_child(melee_attack)
 		
 		# spawn on correct side of player
-		if get_local_mouse_position().x > 0:
+		if get_local_mouse_position().x >= 0:
 			melee_attack.global_position = Vector2(self.global_position.x + 35, self.global_position.y)
 		if get_local_mouse_position().x < 0:
 			melee_attack.global_position = Vector2(self.global_position.x - 35, self.global_position.y)

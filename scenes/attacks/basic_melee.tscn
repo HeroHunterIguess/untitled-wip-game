@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://chsrddhqvntxc" path="res://art/misc/attack.png" id="2_tpomu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpomu"]
-size = Vector2(64, 80)
+size = Vector2(19, 80)
 
 [node name="basic_melee" type="Area2D" unique_id=2095313411]
 script = ExtResource("1_tpomu")

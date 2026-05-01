@@ -35,7 +35,7 @@ func set_location(object):
 		offset = 0
 	
 	# set y to a value close to ground
-	object.global_position.y = 500
+	object.global_position.y = 530
 
 
 func _ready():
