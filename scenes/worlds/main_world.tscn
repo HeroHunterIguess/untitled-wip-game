@@ -12,9 +12,9 @@ ambient_light_color = Color(0.46646786, 0.5019988, 0.50511825, 1)
 ambient_light_energy = 1.36
 glow_enabled = true
 glow_intensity = 1.07
-glow_bloom = 0.59
+glow_bloom = 0.13
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.2016
+volumetric_fog_density = 0.2903
 volumetric_fog_emission_energy = 1.25
 volumetric_fog_detail_spread = 0.6155722
 volumetric_fog_ambient_inject = 1.56
@@ -24,10 +24,10 @@ volumetric_fog_sky_affect = 0.556
 size = Vector2(4000, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w87fn"]
-size = Vector2(16, 1100)
+size = Vector2(32, 1100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1qdg"]
-size = Vector2(16, 1096)
+size = Vector2(32, 1096)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqpkv"]
 size = Vector2(4000, 24)
@@ -42,7 +42,7 @@ environment = SubResource("Environment_y1qdg")
 modulate = Color(0.9494527, 0.9494527, 0.9494527, 1)
 self_modulate = Color(0.7849187, 0.7849187, 0.7849187, 1)
 texture_filter = 1
-position = Vector2(2000.0001, 64.00003)
+position = Vector2(2000.0005, 64.00003)
 scale = Vector2(1.5500002, 0.7111111)
 texture = ExtResource("5_y1qdg")
 
@@ -60,11 +60,11 @@ position = Vector2(2000, 616)
 shape = SubResource("RectangleShape2D_caik2")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1826447023]
-position = Vector2(8, 102)
+position = Vector2(16, 102)
 shape = SubResource("RectangleShape2D_w87fn")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=2031205457]
-position = Vector2(3992, 100)
+position = Vector2(3984, 100)
 shape = SubResource("RectangleShape2D_y1qdg")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=910603969]
@@ -83,16 +83,16 @@ scale = Vector2(20, 0.39999983)
 texture = ExtResource("6_aqpkv")
 
 [node name="GroundSquare2" type="Sprite2D" parent="." unique_id=350834798]
-position = Vector2(7.9999957, 51.99997)
-scale = Vector2(0.07999996, 5.24)
+position = Vector2(16, 51.99997)
+scale = Vector2(0.16, 5.24)
 texture = ExtResource("6_aqpkv")
 
 [node name="GroundSquare3" type="Sprite2D" parent="." unique_id=1801545244]
-position = Vector2(2000.0001, -460)
-scale = Vector2(20, 0.12000006)
+position = Vector2(2000, -462)
+scale = Vector2(20, 0.14000002)
 texture = ExtResource("6_aqpkv")
 
 [node name="GroundSquare4" type="Sprite2D" parent="." unique_id=1944373048]
-position = Vector2(3992, 64)
-scale = Vector2(0.08000029, 5.12)
+position = Vector2(3984.0002, 64)
+scale = Vector2(0.15999901, 5.12)
 texture = ExtResource("6_aqpkv")

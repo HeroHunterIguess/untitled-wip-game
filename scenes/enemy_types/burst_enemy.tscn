@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://fyaj7kbdq2td"]
 
 [ext_resource type="Script" uid="uid://clfs30074cjf3" path="res://scripts/game/burst_enemy.gd" id="1_fkmm3"]
-[ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="2_l5p3m"]
+[ext_resource type="Texture2D" uid="uid://c58ipb4q384ig" path="res://art/objects_characters/burst_enemy.png" id="2_fkmm3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0to3"]
 size = Vector2(48, 48)
@@ -18,10 +18,12 @@ script = ExtResource("1_fkmm3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2122937597]
 shape = SubResource("RectangleShape2D_d0to3")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=638017216]
-modulate = Color(0.30273595, 0.5635103, 0.24962088, 1)
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("2_l5p3m")
+[node name="BurstEnemy" type="Sprite2D" parent="." unique_id=552297917]
+modulate = Color(1.0895202, 1.0895202, 1.0895202, 1)
+self_modulate = Color(1.1274886, 1.1274886, 1.1274886, 1)
+position = Vector2(7.6293945e-06, 0)
+scale = Vector2(0.24000004, 0.24000001)
+texture = ExtResource("2_fkmm3")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=1489618191]
 collision_layer = 5

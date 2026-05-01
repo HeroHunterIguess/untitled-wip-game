@@ -18,11 +18,11 @@ func set_location(object):
 	
 	# i need to save the location of the last one so i can vary it to ensure they never have the overlap speed bug
 	if left_location < 0:
-		var location = right_location + rng.randi_range(0, 99)
+		var location = right_location + rng.randi_range(0, 50)
 		object.global_position.x = location
 	
 	if right_location > 4000:
-		var location = right_location - rng.randi_range(0, 99)
+		var location = right_location - rng.randi_range(0, 50)
 		object.global_position.x = location
 	
 	# set y to a value close to ground

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpbk2q31xyybd"]
 
 [ext_resource type="Script" uid="uid://b6uh5jgfv33sl" path="res://scripts/game/basic_enemy.gd" id="1_1m5xl"]
-[ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="1_xjpoc"]
+[ext_resource type="Texture2D" uid="uid://08oq0682bpvv" path="res://art/objects_characters/basic_enemy.png" id="2_hnvih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1m5xl"]
 size = Vector2(32, 48)
@@ -15,11 +15,6 @@ script = ExtResource("1_1m5xl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1674750778]
 shape = SubResource("RectangleShape2D_1m5xl")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1123823822]
-modulate = Color(1, 0.4497674, 0.9512095, 1)
-scale = Vector2(0.25, 0.375)
-texture = ExtResource("1_xjpoc")
-
 [node name="hitbox" type="Area2D" parent="." unique_id=429958653]
 collision_layer = 5
 collision_mask = 5
@@ -27,5 +22,12 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=2138496421]
 shape = SubResource("RectangleShape2D_xjpoc")
 debug_color = Color(0.8251935, 0.22585961, 0.80986995, 0.41960785)
+
+[node name="BasicEnemy" type="Sprite2D" parent="." unique_id=1033654392]
+modulate = Color(1.052771, 1.052771, 1.052771, 1)
+self_modulate = Color(1.0895202, 1.0895202, 1.0895202, 1)
+position = Vector2(0, 3.8146973e-06)
+scale = Vector2(0.16, 0.24000001)
+texture = ExtResource("2_hnvih")
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

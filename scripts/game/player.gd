@@ -11,7 +11,7 @@ const DASH_COOLDOWN = 75
 const DASH_FORCE = 1000
 
 const SLAM_COOLDOWN = 175
-const SLAM_FORCE = 1350
+const SLAM_FORCE = 1545
 const SLAM_REBOUNCE = 550
 
 const BURST_COOLDOWN = 200
@@ -158,7 +158,6 @@ func _process(_delta):
 	get_parent().get_node("Camera2D").global_position.x = self.global_position.x
 	
 	# lock camera at screen edges
-	# THIS IS BROKEN RN AND NEEDS TO BE FIXED
 	if (get_viewport().size.x / 2) + self.global_position.x > 4000:
 		get_parent().get_node("Camera2D").global_position.x = 4000 - get_viewport().size.x / 2
 	if self.global_position.x - (get_viewport().size.x / 2) < 0:
@@ -176,14 +175,15 @@ func _process(_delta):
 	# spawn melee attack
 	if Input.is_action_just_pressed("melee") && !is_attacking && !data.slamming:
 		var melee_attack = melee_preload.instantiate()
-		add_child(melee_attack)
 		
 		is_attacking = true
-
+		
+		add_child(melee_attack)
+		
 		# spawn on correct side of player
 		if get_local_mouse_position().x > 0:
 			melee_attack.global_position = Vector2(self.global_position.x + 35, self.global_position.y)
-		elif get_local_mouse_position().x < 0:
+		if get_local_mouse_position().x < 0:
 			melee_attack.global_position = Vector2(self.global_position.x - 35, self.global_position.y)
 		
 		await get_tree().create_timer(0.25).timeout
@@ -199,6 +199,7 @@ func _process(_delta):
 		
 		ground_slam.global_position = Vector2(self.global_position.x, self.global_position.y - 20)
 		
+		velocity.x = 0
 		velocity.y = SLAM_FORCE
 	
 	# spawn grenade
