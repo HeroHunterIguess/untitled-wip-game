@@ -158,8 +158,8 @@ func _process(_delta):
 	get_parent().get_node("Camera2D").global_position.x = self.global_position.x
 	
 	# lock camera at screen edges
-	if (get_viewport().size.x / 2) + self.global_position.x > 4000:
-		get_parent().get_node("Camera2D").global_position.x = 4000 - get_viewport().size.x / 2
+	if (get_viewport().size.x / 2) + self.global_position.x > 5000:
+		get_parent().get_node("Camera2D").global_position.x = 5000 - get_viewport().size.x / 2
 	if self.global_position.x - (get_viewport().size.x / 2) < 0:
 		get_parent().get_node("Camera2D").global_position.x = get_viewport().size.x / 2
 

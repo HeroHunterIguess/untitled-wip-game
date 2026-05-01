@@ -10,7 +10,7 @@ radius = 88.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft8yu"]
 size = Vector2(80, 200)
 
-[node name="Area2D" type="Area2D" unique_id=1249516471]
+[node name="ground_slam" type="Area2D" unique_id=1249516471]
 script = ExtResource("1_3fm40")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1642465214]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1ndh4e5hiqgc"]
 
 [ext_resource type="Script" uid="uid://b8xhlyuj2w6u0" path="res://scripts/ui/game_ui.gd" id="1_nt7q6"]
+[ext_resource type="FontFile" uid="uid://cd0unvxelilu6" path="res://fonts/tenada/Tenada.ttf" id="2_x4jx1"]
 
 [node name="UI" type="CanvasLayer" unique_id=337467620]
 script = ExtResource("1_nt7q6")
@@ -8,39 +9,48 @@ script = ExtResource("1_nt7q6")
 [node name="double_jump_text" type="Label" parent="." unique_id=51548743]
 offset_right = 128.0
 offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_x4jx1")
 theme_override_font_sizes/font_size = 19
 text = "Double jump?
 YES"
+vertical_alignment = 1
 
 [node name="dash_text" type="Label" parent="." unique_id=862384000]
 offset_top = 64.0
 offset_right = 128.0
 offset_bottom = 128.0
+theme_override_fonts/font = ExtResource("2_x4jx1")
 theme_override_font_sizes/font_size = 19
 text = "Dash?
 YES"
+vertical_alignment = 1
 
 [node name="slam_text" type="Label" parent="." unique_id=417815571]
 offset_top = 128.0
 offset_right = 128.0
 offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("2_x4jx1")
 theme_override_font_sizes/font_size = 19
 text = "Slam?
 YES"
+vertical_alignment = 1
 
 [node name="burst_text" type="Label" parent="." unique_id=1559196530]
 offset_top = 192.0
 offset_right = 128.0
 offset_bottom = 279.0
+theme_override_fonts/font = ExtResource("2_x4jx1")
 theme_override_font_sizes/font_size = 19
 text = "Burst?
 YES
 "
+vertical_alignment = 1
 
 [node name="health" type="Label" parent="." unique_id=1628544038]
 offset_left = 1728.0
 offset_right = 1920.0
 offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("2_x4jx1")
 theme_override_font_sizes/font_size = 48
 text = "100 HP"
 horizontal_alignment = 1
