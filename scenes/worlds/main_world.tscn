@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1e4xfgpjp5wh" path="res://scripts/game/game_control.gd" id="1_w87fn"]
 [ext_resource type="PackedScene" uid="uid://c1ndh4e5hiqgc" path="res://scenes/ui.tscn" id="2_y1qdg"]
+[ext_resource type="Texture2D" uid="uid://cxunbsrywj0pw" path="res://art/misc/fog.png" id="4_aqpkv"]
 [ext_resource type="PackedScene" uid="uid://cg767ovvy5ane" path="res://scenes/player.tscn" id="4_hvjhl"]
 [ext_resource type="Texture2D" uid="uid://t4u1iarf7l71" path="res://art/backgrounds/background.png" id="5_y1qdg"]
 [ext_resource type="Texture2D" uid="uid://bkmlc24e32ogs" path="res://art/objects_characters/ground_square.png" id="6_aqpkv"]
@@ -71,34 +72,8 @@ shape = SubResource("RectangleShape2D_y1qdg")
 position = Vector2(2500, -460)
 shape = SubResource("RectangleShape2D_aqpkv")
 
-[node name="temp textures" type="Node" parent="." unique_id=1490719101]
-
-[node name="player" parent="." unique_id=1754200920 instance=ExtResource("4_hvjhl")]
-modulate = Color(1.0895202, 1.0895202, 1.0895202, 1)
-position = Vector2(2496, 544)
-
-[node name="GroundSquare" type="Sprite2D" parent="." unique_id=230677566]
-position = Vector2(2500, 616)
-scale = Vector2(25, 0.39999983)
-texture = ExtResource("6_aqpkv")
-
-[node name="GroundSquare2" type="Sprite2D" parent="." unique_id=350834798]
-position = Vector2(-428.00003, 88.00002)
-scale = Vector2(4.6, 5.6799994)
-texture = ExtResource("6_aqpkv")
-
-[node name="GroundSquare3" type="Sprite2D" parent="." unique_id=1801545244]
-position = Vector2(2500, -464)
-scale = Vector2(25, 0.16000009)
-texture = ExtResource("6_aqpkv")
-
-[node name="GroundSquare4" type="Sprite2D" parent="." unique_id=1944373048]
-position = Vector2(5428, 87.99999)
-scale = Vector2(4.600001, 5.68)
-texture = ExtResource("6_aqpkv")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=333570807]
-modulate = Color(0.7675596, 0.8571258, 1.053091, 0.6509804)
+[node name="falling_particles" type="CPUParticles2D" parent="." unique_id=333570807]
+modulate = Color(0.7695037, 0.85930634, 1.053091, 0.5372549)
 self_modulate = Color(1.1274886, 1.1274886, 1.1274886, 1)
 position = Vector2(2496, -432)
 amount = 58
@@ -110,9 +85,56 @@ emission_shape = 3
 emission_rect_extents = Vector2(2500, 1)
 spread = 55.75
 gravity = Vector2(0, 0.75)
-initial_velocity_min = 6.0
-initial_velocity_max = 6.0
-scale_amount_min = 5.0
+initial_velocity_min = 4.0
+initial_velocity_max = 7.0
+scale_amount_min = 2.75
 scale_amount_max = 5.0
+color = Color(0.90887594, 0.92303264, 0.9392494, 1)
 hue_variation_min = 0.12
 hue_variation_max = 0.3
+
+[node name="fog_particles" type="CPUParticles2D" parent="." unique_id=674144388]
+self_modulate = Color(1, 1, 1, 0.6313726)
+position = Vector2(-256, 0)
+amount = 17
+texture = ExtResource("4_aqpkv")
+lifetime = 139.66
+preprocess = 120.0
+speed_scale = 34.67
+spread = 8.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 59.7
+initial_velocity_max = 74.64
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.5
+scale_amount_max = 1.75
+color = Color(1, 1, 1, 0.05490196)
+
+[node name="textures" type="Node" parent="." unique_id=1490719101]
+
+[node name="GroundSquare" type="Sprite2D" parent="textures" unique_id=230677566]
+position = Vector2(2500, 616)
+scale = Vector2(25, 0.39999983)
+texture = ExtResource("6_aqpkv")
+
+[node name="GroundSquare2" type="Sprite2D" parent="textures" unique_id=350834798]
+visible = false
+position = Vector2(-426.00003, 88)
+scale = Vector2(4.5800004, 5.6799994)
+texture = ExtResource("6_aqpkv")
+
+[node name="GroundSquare3" type="Sprite2D" parent="textures" unique_id=1801545244]
+position = Vector2(2500, -464)
+scale = Vector2(25, 0.16000009)
+texture = ExtResource("6_aqpkv")
+
+[node name="GroundSquare4" type="Sprite2D" parent="textures" unique_id=1944373048]
+visible = false
+position = Vector2(5428, 87.99999)
+scale = Vector2(4.600001, 5.68)
+texture = ExtResource("6_aqpkv")
+
+[node name="player" parent="." unique_id=1754200920 instance=ExtResource("4_hvjhl")]
+modulate = Color(1.0895202, 1.0895202, 1.0895202, 1)
+position = Vector2(2496, 544)
