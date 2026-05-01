@@ -100,7 +100,6 @@ amount = 17
 texture = ExtResource("4_aqpkv")
 lifetime = 139.66
 preprocess = 120.0
-speed_scale = 34.67
 spread = 8.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 59.7
