@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cg767ovvy5ane" path="res://scenes/player.tscn" id="4_hvjhl"]
 [ext_resource type="Texture2D" uid="uid://t4u1iarf7l71" path="res://art/backgrounds/background.png" id="5_y1qdg"]
 [ext_resource type="Texture2D" uid="uid://bkmlc24e32ogs" path="res://art/objects_characters/ground_square.png" id="6_aqpkv"]
+[ext_resource type="PackedScene" uid="uid://do4q7gbj58ics" path="res://scenes/objects/health_pickup.tscn" id="6_hvjhl"]
 
 [sub_resource type="Environment" id="Environment_y1qdg"]
 background_mode = 3
@@ -96,3 +97,6 @@ texture = ExtResource("6_aqpkv")
 position = Vector2(4440, 87.99999)
 scale = Vector2(4.7200003, 5.6800003)
 texture = ExtResource("6_aqpkv")
+
+[node name="health_pickup" parent="." unique_id=1357647121 instance=ExtResource("6_hvjhl")]
+position = Vector2(2320, 520)
