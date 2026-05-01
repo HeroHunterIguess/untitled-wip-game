@@ -11,8 +11,8 @@ const burst_enemy_preload = preload("res://scenes/enemy_types/burst_enemy.tscn")
 
 func set_location(object):
 	var screen_width = get_viewport().size.x
-	var left_location = $player.global_position.x-screen_width - 10
-	var right_location = $player.global_position.x+screen_width + 10
+	var left_location = $player.global_position.x - (screen_width / 2) - 20
+	var right_location = $player.global_position.x + (screen_width / 2) + 20
 	
 	# spawn enemy off screen and vary random distance to have minimal overlap bugs
 	

@@ -14,9 +14,9 @@ glow_enabled = true
 glow_intensity = 1.07
 glow_bloom = 0.13
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.2903
-volumetric_fog_emission_energy = 1.25
-volumetric_fog_detail_spread = 0.6155722
+volumetric_fog_density = 0.4355
+volumetric_fog_emission_energy = 24.77
+volumetric_fog_detail_spread = 0.7071065
 volumetric_fog_ambient_inject = 1.56
 volumetric_fog_sky_affect = 0.556
 
