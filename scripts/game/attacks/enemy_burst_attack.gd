@@ -14,7 +14,7 @@ func _process(_delta):
 func _on_area_entered(area: Area2D) -> void:
 	# damage things in area
 	var object = area.get_parent()
-	if object.is_in_group("player") && !data.slamming:
+	if object.is_in_group("player") && not data.slamming:
 		if object.has_method("take_dmg"):
 			object.take_dmg(DAMAGE)
 		
