@@ -11,24 +11,34 @@ const burst_enemy_preload = preload("res://scenes/enemy_types/burst_enemy.tscn")
 
 func set_location(object):
 	var screen_width = get_viewport().size.x
-	var left_location = $Camera2D.global_position.x - (screen_width / 2 - 250)
-	var right_location = $Camera2D.global_position.x + (screen_width / 2 + 250)
+	var left_location = $Camera2D.global_position.x - (screen_width - 250)
+	var right_location = $Camera2D.global_position.x + (screen_width + 250)
+	
 	
 	# spawn enemy off screen and vary distance to prevent overlap bugs
 	if left_location <= 0:
 		var location = right_location + offset
-		offset += 1
 		
+		print("left<0: spawning on right+offset")
+		print("location: " + str(location))
+		
+		offset += 1
 		object.global_position.x = location
 	elif right_location >= 5000:
 		var location = left_location - offset
-		offset += 1
 		
+		print("right>5000: spawning on left-offset")
+		print("location: " + str(location))
+		
+		offset += 1
 		object.global_position.x = location
 	else:
-		var location = right_location - offset
-		offset += 1
+		var location = right_location + offset
 		
+		print("neither true: spawning on right+offset")
+		print("location: " + str(location))
+		
+		offset += 1
 		object.global_position.x = location
 	
 	if offset >= 100:

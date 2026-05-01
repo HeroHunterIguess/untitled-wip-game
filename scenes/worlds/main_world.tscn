@@ -43,12 +43,12 @@ environment = SubResource("Environment_y1qdg")
 modulate = Color(0.9494527, 0.9494527, 0.9494527, 1)
 self_modulate = Color(0.7849187, 0.7849187, 0.7849187, 1)
 texture_filter = 1
-position = Vector2(2507.9998, 64.00003)
-scale = Vector2(1.9468746, 0.7111111)
+position = Vector2(2500.0002, 64.00003)
+scale = Vector2(1.9281253, 0.7111111)
 texture = ExtResource("5_y1qdg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1616143219]
-position = Vector2(872, 112)
+position = Vector2(2496, 96)
 
 [node name="UI" parent="Camera2D" unique_id=337467620 instance=ExtResource("2_y1qdg")]
 
@@ -118,7 +118,6 @@ scale = Vector2(25, 0.39999983)
 texture = ExtResource("6_aqpkv")
 
 [node name="GroundSquare2" type="Sprite2D" parent="textures" unique_id=350834798]
-visible = false
 position = Vector2(-426.00003, 88)
 scale = Vector2(4.5800004, 5.6799994)
 texture = ExtResource("6_aqpkv")
@@ -129,7 +128,6 @@ scale = Vector2(25, 0.16000009)
 texture = ExtResource("6_aqpkv")
 
 [node name="GroundSquare4" type="Sprite2D" parent="textures" unique_id=1944373048]
-visible = false
 position = Vector2(5428, 87.99999)
 scale = Vector2(4.600001, 5.68)
 texture = ExtResource("6_aqpkv")
