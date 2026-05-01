@@ -18,9 +18,12 @@ func set_location(object):
 	
 	# i need to save the location of the last one so i can vary it to ensure they never have the overlap speed bug
 	if left_location < 0:
-		object.global_position.x = right_location + rng.randi_range(0, 99)
+		var location = right_location + rng.randi_range(0, 99)
+		object.global_position.x = location
+	
 	if right_location > 4000:
-		object.global_position.x = left_location - rng.randi_range(0, 99)
+		var location = right_location - rng.randi_range(0, 99)
+		object.global_position.x = location
 	
 	# set y to a value close to ground
 	object.global_position.y = 500
@@ -46,7 +49,7 @@ func _ready():
 			set_location(burst_enemy)
 		
 		# wait arbitrary amount of time then spawn more
-		await get_tree().create_timer(5 + round_bonus_time).timeout
+		await get_tree().create_timer(4 + round_bonus_time).timeout
 		
 		# add extra time for each round bc there will be more enemies
-		round_bonus_time += 0.95
+		round_bonus_time += 0.9

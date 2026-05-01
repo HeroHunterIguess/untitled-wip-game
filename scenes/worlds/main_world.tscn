@@ -2,37 +2,48 @@
 
 [ext_resource type="Script" uid="uid://d1e4xfgpjp5wh" path="res://scripts/game/game_control.gd" id="1_w87fn"]
 [ext_resource type="PackedScene" uid="uid://c1ndh4e5hiqgc" path="res://scenes/ui.tscn" id="2_y1qdg"]
-[ext_resource type="Texture2D" uid="uid://dwk04sooe337l" path="res://art/temporary_art/plain color.png" id="3_aqpkv"]
 [ext_resource type="PackedScene" uid="uid://cg767ovvy5ane" path="res://scenes/player.tscn" id="4_hvjhl"]
-[ext_resource type="Texture2D" uid="uid://bvhe2m66j7025" path="res://icon.svg" id="5_y1qdg"]
+[ext_resource type="Texture2D" uid="uid://t4u1iarf7l71" path="res://art/backgrounds/background.png" id="5_y1qdg"]
+[ext_resource type="Texture2D" uid="uid://bkmlc24e32ogs" path="res://art/objects_characters/ground_square.png" id="6_aqpkv"]
+
+[sub_resource type="Environment" id="Environment_y1qdg"]
+background_mode = 3
+ambient_light_color = Color(0.46646786, 0.5019988, 0.50511825, 1)
+ambient_light_energy = 1.36
+glow_enabled = true
+glow_intensity = 1.07
+glow_bloom = 0.59
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.2016
+volumetric_fog_emission_energy = 1.25
+volumetric_fog_detail_spread = 0.6155722
+volumetric_fog_ambient_inject = 1.56
+volumetric_fog_sky_affect = 0.556
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_caik2"]
 size = Vector2(4000, 80)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqbx0"]
-size = Vector2(216, 10)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v521s"]
-size = Vector2(328, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3lhq"]
-size = Vector2(104, 32)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w87fn"]
-size = Vector2(16, 1128)
+size = Vector2(16, 1100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y1qdg"]
-size = Vector2(16, 1104)
+size = Vector2(16, 1096)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aqpkv"]
-size = Vector2(4016, 24)
+size = Vector2(4000, 24)
 
 [node name="main_world" type="Node2D" unique_id=671118606]
 script = ExtResource("1_w87fn")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1555532176]
-position = Vector2(2000, 104.00002)
-scale = Vector2(31.25, 9.25)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1775695403]
+environment = SubResource("Environment_y1qdg")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=351425868]
+modulate = Color(0.9494527, 0.9494527, 0.9494527, 1)
+self_modulate = Color(0.7849187, 0.7849187, 0.7849187, 1)
+texture_filter = 1
+position = Vector2(2000.0001, 64.00003)
+scale = Vector2(1.5500002, 0.7111111)
 texture = ExtResource("5_y1qdg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1616143219]
@@ -48,51 +59,40 @@ collision_mask = 3
 position = Vector2(2000, 616)
 shape = SubResource("RectangleShape2D_caik2")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=5935330]
-position = Vector2(500, 573)
-shape = SubResource("RectangleShape2D_kqbx0")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2064447227]
-position = Vector2(748, 564)
-shape = SubResource("RectangleShape2D_v521s")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1197612283]
-position = Vector2(52, 568)
-shape = SubResource("RectangleShape2D_t3lhq")
-
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=1826447023]
-position = Vector2(-8, 92)
+position = Vector2(8, 102)
 shape = SubResource("RectangleShape2D_w87fn")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=2031205457]
-position = Vector2(4008, 104)
+position = Vector2(3992, 100)
 shape = SubResource("RectangleShape2D_y1qdg")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=910603969]
-position = Vector2(2008, -460)
+position = Vector2(2000, -460)
 shape = SubResource("RectangleShape2D_aqpkv")
 
 [node name="temp textures" type="Node" parent="." unique_id=1490719101]
 
-[node name="PlainColor" type="Sprite2D" parent="temp textures" unique_id=1303076728]
-position = Vector2(2000, 616)
-scale = Vector2(5, 0.09999999)
-texture = ExtResource("3_aqpkv")
-
-[node name="PlainColor2" type="Sprite2D" parent="temp textures" unique_id=1947189449]
-position = Vector2(652, 584)
-scale = Vector2(0.65, 0.04000004)
-texture = ExtResource("3_aqpkv")
-
-[node name="PlainColor3" type="Sprite2D" parent="temp textures" unique_id=281768977]
-position = Vector2(748, 568)
-scale = Vector2(0.40999997, 0.039999973)
-texture = ExtResource("3_aqpkv")
-
-[node name="PlainColor4" type="Sprite2D" parent="temp textures" unique_id=254428917]
-position = Vector2(51.999996, 567.99994)
-scale = Vector2(0.13, 0.04000006)
-texture = ExtResource("3_aqpkv")
-
 [node name="player" parent="." unique_id=1754200920 instance=ExtResource("4_hvjhl")]
-position = Vector2(744, 520)
+modulate = Color(1.0895202, 1.0895202, 1.0895202, 1)
+position = Vector2(2000, 544)
+
+[node name="GroundSquare" type="Sprite2D" parent="." unique_id=230677566]
+position = Vector2(2000.0001, 616)
+scale = Vector2(20, 0.39999983)
+texture = ExtResource("6_aqpkv")
+
+[node name="GroundSquare2" type="Sprite2D" parent="." unique_id=350834798]
+position = Vector2(7.9999957, 51.99997)
+scale = Vector2(0.07999996, 5.24)
+texture = ExtResource("6_aqpkv")
+
+[node name="GroundSquare3" type="Sprite2D" parent="." unique_id=1801545244]
+position = Vector2(2000.0001, -460)
+scale = Vector2(20, 0.12000006)
+texture = ExtResource("6_aqpkv")
+
+[node name="GroundSquare4" type="Sprite2D" parent="." unique_id=1944373048]
+position = Vector2(3992, 64)
+scale = Vector2(0.08000029, 5.12)
+texture = ExtResource("6_aqpkv")
