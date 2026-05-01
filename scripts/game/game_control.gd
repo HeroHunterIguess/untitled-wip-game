@@ -3,30 +3,40 @@ extends Node2D
 var start_time = Time.get_unix_time_from_system() - 20
 var game_running = true
 var round_bonus_time = 0
-
-var rng = RandomNumberGenerator.new()
+var offset = 0
 
 const enemy_preload = preload("res://scenes/enemy_types/basic_enemy.tscn")
 const burst_enemy_preload = preload("res://scenes/enemy_types/burst_enemy.tscn")
 
+
 func set_location(object):
 	var screen_width = get_viewport().size.x
-	var left_location = $player.global_position.x - screen_width
-	var right_location = $player.global_position.x + screen_width
+	var left_location = $Camera2D.global_position.x - (screen_width / 2 - 250)
+	var right_location = $Camera2D.global_position.x + (screen_width / 2 + 250)
 	
-	# spawn enemy off screen and vary random distance to have minimal overlap bugs
-	
-	# i need to save the location of the last one so i can vary it to ensure they never have the overlap speed bug
-	if left_location < 0:
-		var location = right_location + rng.randi_range(0, 45)
+	# spawn enemy off screen and vary distance to prevent overlap bugs
+	if left_location <= 0:
+		var location = right_location + offset
+		offset += 1
+		
+		object.global_position.x = location
+	elif right_location >= 5000:
+		var location = left_location - offset
+		offset += 1
+		
+		object.global_position.x = location
+	else:
+		var location = right_location - offset
+		offset += 1
+		
 		object.global_position.x = location
 	
-	if right_location > 4000:
-		var location = right_location - rng.randi_range(0, 45)
-		object.global_position.x = location
+	if offset >= 100:
+		offset = 0
 	
 	# set y to a value close to ground
 	object.global_position.y = 500
+
 
 func _ready():
 	while game_running:
