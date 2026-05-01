@@ -34,8 +34,8 @@ YES
 "
 
 [node name="health" type="Label" parent="." unique_id=1628544038]
-offset_left = 1024.0
-offset_right = 1152.0
+offset_left = 1792.0
+offset_right = 1920.0
 offset_bottom = 64.0
 theme_override_font_sizes/font_size = 32
 text = "100 HP"

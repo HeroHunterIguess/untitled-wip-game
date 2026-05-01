@@ -217,6 +217,8 @@ func _process(_delta):
 		data.burst_timer = BURST_COOLDOWN
 		is_attacking = true
 		
-		await get_tree().create_timer(0.15).timeout
-		burst.queue_free()
+		await get_tree().create_timer(0.08).timeout
+		if burst:
+			burst.queue_free()
+		
 		is_attacking = false

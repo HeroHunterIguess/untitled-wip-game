@@ -83,16 +83,16 @@ scale = Vector2(20, 0.39999983)
 texture = ExtResource("6_aqpkv")
 
 [node name="GroundSquare2" type="Sprite2D" parent="." unique_id=350834798]
-position = Vector2(16, 51.99997)
-scale = Vector2(0.16, 5.24)
+position = Vector2(-428.00003, 88.00002)
+scale = Vector2(4.6, 5.6799994)
 texture = ExtResource("6_aqpkv")
 
 [node name="GroundSquare3" type="Sprite2D" parent="." unique_id=1801545244]
-position = Vector2(2000, -462)
-scale = Vector2(20, 0.14000002)
+position = Vector2(2000, -464)
+scale = Vector2(20, 0.16000009)
 texture = ExtResource("6_aqpkv")
 
 [node name="GroundSquare4" type="Sprite2D" parent="." unique_id=1944373048]
-position = Vector2(3984.0002, 64)
-scale = Vector2(0.15999901, 5.12)
+position = Vector2(4440, 87.99999)
+scale = Vector2(4.7200003, 5.6800003)
 texture = ExtResource("6_aqpkv")
