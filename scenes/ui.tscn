@@ -8,6 +8,7 @@ script = ExtResource("1_nt7q6")
 [node name="double_jump_text" type="Label" parent="." unique_id=51548743]
 offset_right = 128.0
 offset_bottom = 64.0
+theme_override_font_sizes/font_size = 19
 text = "Double jump?
 YES"
 
@@ -15,6 +16,7 @@ YES"
 offset_top = 64.0
 offset_right = 128.0
 offset_bottom = 128.0
+theme_override_font_sizes/font_size = 19
 text = "Dash?
 YES"
 
@@ -22,22 +24,24 @@ YES"
 offset_top = 128.0
 offset_right = 128.0
 offset_bottom = 192.0
+theme_override_font_sizes/font_size = 19
 text = "Slam?
 YES"
 
 [node name="burst_text" type="Label" parent="." unique_id=1559196530]
 offset_top = 192.0
 offset_right = 128.0
-offset_bottom = 256.0
+offset_bottom = 279.0
+theme_override_font_sizes/font_size = 19
 text = "Burst?
 YES
 "
 
 [node name="health" type="Label" parent="." unique_id=1628544038]
-offset_left = 1792.0
+offset_left = 1728.0
 offset_right = 1920.0
-offset_bottom = 64.0
-theme_override_font_sizes/font_size = 32
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 48
 text = "100 HP"
 horizontal_alignment = 1
 vertical_alignment = 1

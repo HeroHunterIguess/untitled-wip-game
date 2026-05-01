@@ -131,7 +131,7 @@ func _physics_process(delta: float) -> void:
 		if coyote_timer < 0:
 			coyote_timer = 0.0
 	
-	if (is_on_floor() || coyote_timer > 0) || (is_on_wall() && velocity.y >= 0 && !is_on_floor()):
+	if is_on_floor() || coyote_timer > 0:
 		can_jump = true
 	else:
 		can_jump = false
