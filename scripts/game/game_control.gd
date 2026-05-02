@@ -42,8 +42,8 @@ func set_location(object):
 func _ready():
 	while game_running:
 		# spawn enemies based on time elapsed
-		var amount = (Time.get_unix_time_from_system() - start_time) / 10
-		var burst_amount = (Time.get_unix_time_from_system() - start_time) / 20
+		var amount = (Time.get_unix_time_from_system() - start_time) / 11
+		var burst_amount = (Time.get_unix_time_from_system() - start_time) / 35
 		
 		# spawn basic enemies
 		for i in range(amount):

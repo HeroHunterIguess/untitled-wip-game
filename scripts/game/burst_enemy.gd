@@ -2,7 +2,7 @@ extends "res://scripts/autoloads/enemy_methods.gd"
 
 const JUMP_FORCE = 550
 const SOFT_SPEED_CAP = 290
-const BURST_COOLDOWN = 175
+const BURST_COOLDOWN = 245
 
 var burst_timer = 0.0
 var health = 150
