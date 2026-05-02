@@ -13,7 +13,7 @@ ambient_light_color = Color(0.46646786, 0.5019988, 0.50511825, 1)
 ambient_light_energy = 1.36
 glow_enabled = true
 glow_intensity = 1.07
-glow_bloom = 0.2
+glow_bloom = 0.21
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.4355
 volumetric_fog_emission_energy = 24.77
@@ -48,7 +48,7 @@ scale = Vector2(1.9281253, 0.7111111)
 texture = ExtResource("5_y1qdg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1616143219]
-position = Vector2(2496, 96)
+position = Vector2(2496, 112)
 
 [node name="UI" parent="Camera2D" unique_id=337467620 instance=ExtResource("2_y1qdg")]
 
@@ -75,7 +75,7 @@ shape = SubResource("RectangleShape2D_aqpkv")
 [node name="falling_particles" type="CPUParticles2D" parent="." unique_id=333570807]
 modulate = Color(0.7695037, 0.85930634, 1.053091, 0.5372549)
 self_modulate = Color(1.1274886, 1.1274886, 1.1274886, 1)
-position = Vector2(2496, -432)
+position = Vector2(2496, -440)
 amount = 58
 lifetime = 75.0
 preprocess = 75.0
@@ -96,7 +96,7 @@ hue_variation_max = 0.3
 [node name="textures" type="Node" parent="." unique_id=1490719101]
 
 [node name="GroundSquare" type="Sprite2D" parent="textures" unique_id=230677566]
-position = Vector2(2500, 616)
+position = Vector2(2496, 616)
 scale = Vector2(25, 0.39999983)
 texture = ExtResource("6_aqpkv")
 

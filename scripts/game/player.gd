@@ -214,7 +214,9 @@ func _process(_delta):
 	if Input.is_action_just_pressed("grenade") && data.has_grenade:
 		var grenade = grenade_preload.instantiate()
 		add_child(grenade)
+		
 		# give it initial velocity based on mouse position
+		grenade.global_position = self.global_position
 	
 	# spawn in burst attack
 	if Input.is_action_just_pressed("burst") && !is_attacking && data.has_burst && data.burst_timer <= 0:
