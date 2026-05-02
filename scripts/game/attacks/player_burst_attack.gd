@@ -3,8 +3,6 @@ extends Area2D
 const DAMAGE = 60
 const KNOCKBACK = 1395
 
-const SCALE_SPEED = 0.02
-
 func _on_area_entered(area: Area2D) -> void:
 	# damage things in area
 	var object = area.get_parent()
@@ -24,4 +22,4 @@ func _on_area_entered(area: Area2D) -> void:
 
 # scale up explosion quickly
 func _process(_delta):
-	$Explosion.scale += Vector2(SCALE_SPEED, SCALE_SPEED)
+	$Explosion.scale += Vector2(global.SCALE_SPEED, global.SCALE_SPEED)

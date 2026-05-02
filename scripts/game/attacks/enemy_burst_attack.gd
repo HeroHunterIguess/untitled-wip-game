@@ -3,8 +3,6 @@ extends Area2D
 const DAMAGE = 10
 const KNOCKBACK = 1050
 
-const SCALE_SPEED = 0.02
-
 # lock burst in initial position
 var initial_position
 func _ready():
@@ -14,7 +12,7 @@ func _process(_delta):
 	self.global_position = initial_position
 	
 	# scale up explosion sprite
-	$Explosion.scale += Vector2(SCALE_SPEED, SCALE_SPEED)
+	$Explosion.scale += Vector2(global.SCALE_SPEED, global.SCALE_SPEED)
 
 func _on_area_entered(area: Area2D) -> void:
 	# damage things in area

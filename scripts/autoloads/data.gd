@@ -14,7 +14,6 @@ var player_health = 100
 # what does the player have unlocked
 var has_dash = true
 var has_ground_slam = true
-var has_grenade = true
 var has_burst = true
 var max_jumps = 2
 
