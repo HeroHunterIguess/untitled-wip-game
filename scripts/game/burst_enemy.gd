@@ -55,10 +55,11 @@ const burst_preload = preload("res://scenes/attacks/enemy_burst_attack.tscn")
 
 # spawn in burst attack if player is near
 func _on_burst_range_area_entered(area: Area2D) -> void:
-	if burst_timer <= 0 && area.get_parent().is_in_group("player") && not data.slamming:
+	if burst_timer <= 0 && area.get_parent().is_in_group("player") && !data.slamming && health > 0:
 		burst_timer = BURST_COOLDOWN
 		
 		var burst = burst_preload.instantiate()
-		add_child(burst)
+		
+		call_deferred("add_child", burst)
 		
 		burst.global_position = self.global_position

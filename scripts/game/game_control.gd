@@ -10,7 +10,7 @@ const burst_enemy_preload = preload("res://scenes/enemy_types/burst_enemy.tscn")
 
 
 func set_location(object):
-	var screen_width = get_viewport().size.x
+	var screen_width = get_viewport_rect().size.x
 	var left_location = $Camera2D.global_position.x - (screen_width - 250)
 	var right_location = $Camera2D.global_position.x + (screen_width + 250)
 	
