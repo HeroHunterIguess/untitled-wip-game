@@ -93,23 +93,6 @@ color = Color(0.90887594, 0.92303264, 0.9392494, 1)
 hue_variation_min = 0.12
 hue_variation_max = 0.3
 
-[node name="fog_particles" type="CPUParticles2D" parent="." unique_id=674144388]
-self_modulate = Color(1, 1, 1, 0.6313726)
-position = Vector2(-256, 0)
-amount = 17
-texture = ExtResource("4_aqpkv")
-lifetime = 139.66
-preprocess = 120.0
-spread = 8.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 59.7
-initial_velocity_max = 74.64
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.5
-scale_amount_max = 1.75
-color = Color(1, 1, 1, 0.05490196)
-
 [node name="textures" type="Node" parent="." unique_id=1490719101]
 
 [node name="GroundSquare" type="Sprite2D" parent="textures" unique_id=230677566]
@@ -135,3 +118,21 @@ texture = ExtResource("6_aqpkv")
 [node name="player" parent="." unique_id=1754200920 instance=ExtResource("4_hvjhl")]
 modulate = Color(1.0895202, 1.0895202, 1.0895202, 1)
 position = Vector2(2496, 544)
+
+[node name="fog_particles" type="CPUParticles2D" parent="." unique_id=674144388]
+self_modulate = Color(1, 1, 1, 0.6313726)
+position = Vector2(-256, 0)
+amount = 17
+texture = ExtResource("4_aqpkv")
+lifetime = 139.66
+preprocess = 120.0
+speed_scale = 0.72
+spread = 8.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 59.7
+initial_velocity_max = 74.64
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.5
+scale_amount_max = 1.75
+color = Color(1, 1, 1, 0.05490196)

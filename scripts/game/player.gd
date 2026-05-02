@@ -86,13 +86,15 @@ func _physics_process(delta: float) -> void:
 	# double/triple jumping
 	if Input.is_action_just_pressed("double jump") && !data.slamming:
 		if !is_on_floor() && data.double_jumps > 0:
+			# if frozen then unfreeze
+			if frozen:
+				frozen = false
+				current_gravity = global.GRAVITY
+			
+			# apply jump 
 			velocity.y = -JUMP_FORCE
 			data.double_jumps -= 1
 		
-		# if frozen then unfreeze
-		if frozen:
-			frozen = false
-			current_gravity = global.GRAVITY
 		
 	# air freeze
 	if Input.is_action_just_pressed("air_freeze") && !is_on_floor() && data.can_freeze:
@@ -102,8 +104,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		current_gravity = 0
 		
+		# give double jump to jump out of it
+		if data.double_jumps < 1:
+			data.double_jumps = 1
+		
 		await get_tree().create_timer(FREEZE_TIME).timeout
 		frozen = false
+		
 		current_gravity = global.GRAVITY
 	
 	# check when ground slam hits ground
