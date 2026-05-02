@@ -60,6 +60,5 @@ func _on_burst_range_area_entered(area: Area2D) -> void:
 		
 		var burst = burst_preload.instantiate()
 		
-		call_deferred("add_child", burst)
-		
+		add_child(burst)
 		burst.global_position = self.global_position

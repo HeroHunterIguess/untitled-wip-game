@@ -19,26 +19,17 @@ func set_location(object):
 	if left_location <= 0:
 		var location = right_location + offset
 		
-		print("left<0: spawning on right+offset")
-		print("location: " + str(location))
-		
-		offset += 1
+		offset += 2
 		object.global_position.x = location
 	elif right_location >= 5000:
 		var location = left_location - offset
 		
-		print("right>5000: spawning on left-offset")
-		print("location: " + str(location))
-		
-		offset += 1
+		offset += 2
 		object.global_position.x = location
 	else:
 		var location = right_location + offset
 		
-		print("neither true: spawning on right+offset")
-		print("location: " + str(location))
-		
-		offset += 1
+		offset += 2
 		object.global_position.x = location
 	
 	if offset >= 100:
