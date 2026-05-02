@@ -29,4 +29,5 @@ func die():
 		health_pickup.global_position = self.global_position
 		get_parent().add_child(health_pickup)
 	
+	data.score += 1
 	queue_free()
