@@ -1,6 +1,6 @@
 extends Area2D
 
-const DAMAGE = 8
+const DAMAGE = 10
 const KNOCKBACK = 1050
 
 # lock burst in initial position
@@ -27,6 +27,7 @@ func _on_area_entered(area: Area2D) -> void:
 		else: 
 			if object.has_method("take_kb"):
 				object.take_kb(KNOCKBACK, true)
+		self.queue_free()
 	
 	await get_tree().create_timer(0.08).timeout
 	self.queue_free()

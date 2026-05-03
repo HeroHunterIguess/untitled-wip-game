@@ -7,7 +7,7 @@ const BURST_COOLDOWN = 250
 var burst_timer = 0.0
 var health = 150
 
-# low damage as itll have an ability
+# low damage bc it has an ability
 const DAMAGE = 2
 
 # updating movement and physics every frame
