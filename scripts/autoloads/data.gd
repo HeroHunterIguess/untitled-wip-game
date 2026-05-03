@@ -17,5 +17,12 @@ var has_ground_slam = true
 var has_burst = true
 var max_jumps = 2
 
+# ability slots
+var melee_slot = "basic"
+# basic ...
+var range_slot = "laser" # laser is not yet implimented
+# ...
+var burst_slot = "slam"
+# slam, burst, ...
 
 var score = 0

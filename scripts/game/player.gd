@@ -178,46 +178,55 @@ func _process(_delta):
 	if data.player_health > 100:
 		data.player_health = 100 
 	
+	
+	# ATTACKS IN DIFFERENT SLOTS
+	
 	# spawn melee attack
-	if Input.is_action_just_pressed("melee") && !is_attacking && !data.slamming:
-		var melee_attack = melee_preload.instantiate()
+	if Input.is_action_just_pressed("melee"):
 		
-		is_attacking = true
-		
-		add_child(melee_attack)
-		
-		# spawn on correct side of player
-		if get_local_mouse_position().x >= 0:
-			melee_attack.global_position = Vector2(self.global_position.x + 35, self.global_position.y)
-		if get_local_mouse_position().x < 0:
-			melee_attack.global_position = Vector2(self.global_position.x - 35, self.global_position.y)
-		
-		await get_tree().create_timer(0.25).timeout
-		is_attacking = false
-		remove_child(melee_attack)
+		# spawn basic melee attack
+		if data.melee_slot == "basic" && !is_attacking && !data.slamming:
+			var melee_attack = melee_preload.instantiate()
+			
+			is_attacking = true
+			
+			add_child(melee_attack)
+			
+			# spawn on correct side of player
+			if get_local_mouse_position().x >= 0:
+				melee_attack.global_position = Vector2(self.global_position.x + 35, self.global_position.y)
+			if get_local_mouse_position().x < 0:
+				melee_attack.global_position = Vector2(self.global_position.x - 35, self.global_position.y)
+			
+			await get_tree().create_timer(0.25).timeout
+			is_attacking = false
+			remove_child(melee_attack)
 	
-	# ground slam attack
-	if Input.is_action_just_pressed("ground_slam") && !is_on_floor() && data.slam_timer <= 0 && !frozen && data.has_ground_slam:
-		# spawn hitbox and set positiong
-		ground_slam = ground_slam_preload.instantiate()
-		add_child(ground_slam)
-		data.slamming = true
-		
-		ground_slam.global_position = Vector2(self.global_position.x, self.global_position.y - 20)
-		
-		velocity.x = 0
-		velocity.y = SLAM_FORCE
+	# spawn burst/explosion attack
 	
-	# spawn in burst attack
-	if Input.is_action_just_pressed("burst") && !is_attacking && data.has_burst && data.burst_timer <= 0:
-		var burst = burst_preload.instantiate()
-		add_child(burst)
+	if Input.is_action_just_pressed("burst_slot"):
+		# ground slam attack
+		if data.burst_slot == "slam" && !is_on_floor() && data.slam_timer <= 0 && !frozen && data.has_ground_slam:
+			# spawn hitbox and set positiong
+			ground_slam = ground_slam_preload.instantiate()
+			add_child(ground_slam)
+			data.slamming = true
+			
+			ground_slam.global_position = Vector2(self.global_position.x, self.global_position.y - 20)
+			
+			velocity.x = 0
+			velocity.y = SLAM_FORCE
 		
-		data.burst_timer = BURST_COOLDOWN
-		is_attacking = true
-		
-		await get_tree().create_timer(0.08).timeout
-		if burst:
-			burst.queue_free()
-		
-		is_attacking = false
+		# spawn in burst attack
+		if data.burst_slot == "burst" && !is_attacking && data.has_burst && data.burst_timer <= 0:
+			var burst = burst_preload.instantiate()
+			add_child(burst)
+			
+			data.burst_timer = BURST_COOLDOWN
+			is_attacking = true
+			
+			await get_tree().create_timer(0.08).timeout
+			if burst:
+				burst.queue_free()
+			
+			is_attacking = false

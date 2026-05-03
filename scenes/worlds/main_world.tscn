@@ -9,9 +9,10 @@
 
 [sub_resource type="Environment" id="Environment_y1qdg"]
 background_mode = 3
-ambient_light_color = Color(0.46646786, 0.5019988, 0.50511825, 1)
-ambient_light_energy = 1.36
+ambient_light_color = Color(0.737193, 0.7371929, 0.7371929, 1)
+ambient_light_energy = 1.58
 glow_enabled = true
+glow_normalized = true
 glow_intensity = 1.07
 glow_bloom = 0.21
 volumetric_fog_enabled = true
@@ -126,7 +127,7 @@ amount = 17
 texture = ExtResource("4_aqpkv")
 lifetime = 139.66
 preprocess = 120.0
-speed_scale = 0.72
+speed_scale = 0.8
 spread = 8.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 59.7
