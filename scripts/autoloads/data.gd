@@ -15,10 +15,10 @@ var has_ground_slam = true
 var has_burst = true
 var max_jumps = 2
 
-var score = 0
-
 var slamming = false
 var can_freeze = true
+
+var score = 0
 
 
 ### ability slots ###

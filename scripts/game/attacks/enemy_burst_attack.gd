@@ -3,6 +3,8 @@ extends Area2D
 const DAMAGE = 10
 const KNOCKBACK = 1050
 
+var has_damaged_player = false
+
 # lock burst in initial position
 var initial_position
 func _ready():
@@ -17,7 +19,7 @@ func _process(_delta):
 func _on_area_entered(area: Area2D) -> void:
 	# damage things in area
 	var object = area.get_parent()
-	if object.is_in_group("player") && not data.slamming:
+	if object.is_in_group("player") && !data.slamming && !has_damaged_player:
 		if object.has_method("take_dmg"):
 			object.take_dmg(DAMAGE)
 		
@@ -27,7 +29,8 @@ func _on_area_entered(area: Area2D) -> void:
 		else: 
 			if object.has_method("take_kb"):
 				object.take_kb(KNOCKBACK, true)
-		self.queue_free()
+		
+		has_damaged_player = true
 	
 	await get_tree().create_timer(0.08).timeout
 	self.queue_free()
