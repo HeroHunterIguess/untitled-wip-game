@@ -1,6 +1,6 @@
 extends Area2D
 
-const DAMAGE = 10
+const DAMAGE = 8
 const KNOCKBACK = 1050
 
 # lock burst in initial position

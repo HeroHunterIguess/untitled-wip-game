@@ -19,18 +19,17 @@ func set_location(object):
 	if left_location <= 0:
 		var location = right_location + offset
 		
-		offset += 2
 		object.global_position.x = location
 	elif right_location >= 5000:
 		var location = left_location - offset
 		
-		offset += 2
 		object.global_position.x = location
 	else:
 		var location = right_location + offset
 		
-		offset += 2
 		object.global_position.x = location
+	
+	offset += 2
 	
 	if offset >= 100:
 		offset = 0

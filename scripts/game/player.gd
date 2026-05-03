@@ -182,7 +182,7 @@ func _process(_delta):
 	# ATTACKS IN DIFFERENT SLOTS
 	
 	# spawn melee attack
-	if Input.is_action_just_pressed("melee"):
+	if Input.is_action_just_pressed("melee_slot"):
 		
 		# spawn basic melee attack
 		if data.melee_slot == "basic" && !is_attacking && !data.slamming:
@@ -205,6 +205,7 @@ func _process(_delta):
 	# spawn burst/explosion attack
 	
 	if Input.is_action_just_pressed("burst_slot"):
+		
 		# ground slam attack
 		if data.burst_slot == "slam" && !is_on_floor() && data.slam_timer <= 0 && !frozen && data.has_ground_slam:
 			# spawn hitbox and set positiong
