@@ -6,8 +6,8 @@
 
 [node name="Background" type="Sprite2D" parent="." unique_id=209718088]
 modulate = Color(2.5329797, 2.5329797, 2.5329797, 1)
-position = Vector2(960.00006, 428.00003)
-scale = Vector2(0.29999998, 0.29444447)
+position = Vector2(959.99994, 400)
+scale = Vector2(0.29999998, 0.24444439)
 texture = ExtResource("1_j4pd8")
 
 [node name="Label" type="Label" parent="." unique_id=2114032475]
@@ -18,3 +18,24 @@ offset_bottom = 216.0
 theme_override_font_sizes/font_size = 40
 text = "Level up!"
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=652821797]
+offset_left = 640.0
+offset_top = 352.0
+offset_right = 768.0
+offset_bottom = 448.0
+text = "upgrade 1"
+
+[node name="Button2" type="Button" parent="." unique_id=1792014959]
+offset_left = 896.0
+offset_top = 352.0
+offset_right = 1024.0
+offset_bottom = 448.0
+text = "upgrade 2"
+
+[node name="Button3" type="Button" parent="." unique_id=1153812013]
+offset_left = 1144.0
+offset_top = 352.0
+offset_right = 1272.0
+offset_bottom = 448.0
+text = "upgrade 3"
