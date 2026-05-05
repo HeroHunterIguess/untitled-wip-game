@@ -5,6 +5,8 @@ var game_running = true
 var round_bonus_time = 0
 var offset = 0
 
+var amount_to_upgrade = 6
+
 const enemy_preload = preload("res://scenes/enemy_types/basic_enemy.tscn")
 const burst_enemy_preload = preload("res://scenes/enemy_types/burst_enemy.tscn")
 
@@ -63,3 +65,12 @@ func _ready():
 		
 		# add extra time for each round bc there will be more enemies
 		round_bonus_time += 0.9
+
+const upgrade_menu_preload = preload("res://scenes/menus/upgrade_menu.tscn")
+
+func _process(_delta):
+	if data.score >= amount_to_upgrade:
+		var upgrade_menu = upgrade_menu_preload.instantiate()
+		add_child(upgrade_menu)
+		
+		amount_to_upgrade = round(amount_to_upgrade *  1.85)
