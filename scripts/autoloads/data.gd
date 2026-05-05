@@ -10,13 +10,10 @@ var player_health = 100
 
 
 ### player related things ###
-var has_dash = true
-var has_ground_slam = true
-var has_burst = true
 var max_jumps = 2
-
 var slamming = false
 var can_freeze = true
+var has_dash = true
 
 var score = 0
 

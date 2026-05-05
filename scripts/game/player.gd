@@ -207,7 +207,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("burst_slot"):
 		
 		# ground slam attack
-		if data.burst_slot == "slam" && !is_on_floor() && data.slam_timer <= 0 && !frozen && data.has_ground_slam:
+		if data.burst_slot == "slam" && !is_on_floor() && data.slam_timer <= 0 && !frozen:
 			# spawn hitbox and set positiong
 			ground_slam = ground_slam_preload.instantiate()
 			add_child(ground_slam)
@@ -219,7 +219,7 @@ func _process(_delta):
 			velocity.y = SLAM_FORCE
 		
 		# spawn in burst attack
-		if data.burst_slot == "burst" && !is_attacking && data.has_burst && data.burst_timer <= 0:
+		if data.burst_slot == "burst" && !is_attacking && data.burst_timer <= 0:
 			var burst = burst_preload.instantiate()
 			add_child(burst)
 			
