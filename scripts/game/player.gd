@@ -84,7 +84,7 @@ func _physics_process(delta: float) -> void:
 			dashing = false
 		
 	# double/triple jumping
-	if Input.is_action_just_pressed("double jump") && !data.slamming:
+	if Input.is_action_just_pressed("jump") && !data.slamming:
 		if !is_on_floor() && data.double_jumps > 0:
 			# if frozen then unfreeze
 			if frozen:
