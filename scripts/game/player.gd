@@ -179,7 +179,7 @@ func _process(_delta):
 		data.player_health = 100 
 	
 	
-	# ATTACKS IN DIFFERENT SLOTS
+	### ATTACKS IN DIFFERENT SLOTS ###
 	
 	# spawn melee attack
 	if Input.is_action_just_pressed("melee_slot"):

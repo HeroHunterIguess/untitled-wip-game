@@ -8,36 +8,32 @@ script = ExtResource("1_vsubm")
 
 [node name="menu_background" type="Sprite2D" parent="." unique_id=209718088]
 modulate = Color(2.5329797, 2.5329797, 2.5329797, 1)
-position = Vector2(959.99994, 400)
-scale = Vector2(0.29999998, 0.24444439)
+position = Vector2(959.99994, 383.99997)
+scale = Vector2(0.24999997, 0.17777781)
 texture = ExtResource("1_j4pd8")
 
 [node name="Title" type="Label" parent="." unique_id=2114032475]
-offset_left = 548.0
-offset_top = 152.0
-offset_right = 1372.0
-offset_bottom = 216.0
+offset_left = 640.0
+offset_top = 200.0
+offset_right = 1280.0
+offset_bottom = 256.0
 theme_override_font_sizes/font_size = 40
 text = "Level up!"
 horizontal_alignment = 1
 
 [node name="upgrade_1" type="Button" parent="." unique_id=652821797]
-offset_left = 640.0
-offset_top = 352.0
-offset_right = 768.0
+offset_left = 704.0
+offset_top = 320.0
+offset_right = 896.0
 offset_bottom = 448.0
 text = "upgrade 1"
 
 [node name="upgrade_2" type="Button" parent="." unique_id=1792014959]
-offset_left = 896.0
-offset_top = 352.0
-offset_right = 1024.0
+offset_left = 1024.0
+offset_top = 320.0
+offset_right = 1216.0
 offset_bottom = 448.0
 text = "upgrade 2"
 
-[node name="upgrade_3" type="Button" parent="." unique_id=1153812013]
-offset_left = 1144.0
-offset_top = 352.0
-offset_right = 1272.0
-offset_bottom = 448.0
-text = "upgrade 3"
+[connection signal="button_down" from="upgrade_1" to="." method="_on_upgrade_1_button_down"]
+[connection signal="button_down" from="upgrade_2" to="." method="_on_upgrade_2_button_down"]
