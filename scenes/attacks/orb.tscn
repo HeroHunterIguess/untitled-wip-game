@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dgheaprjvgmdl"]
+
+[ext_resource type="Script" uid="uid://c7hcjagkcw36r" path="res://scripts/game/attacks/orb.gd" id="1_7v8ub"]
+[ext_resource type="Texture2D" uid="uid://cg0eaeltmbilk" path="res://art/misc/burst_trigger_range.png" id="1_ixx3c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7v8ub"]
+radius = 56.0
+
+[node name="orb" type="Area2D" unique_id=1435399317]
+script = ExtResource("1_7v8ub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1659783459]
+shape = SubResource("CircleShape2D_7v8ub")
+
+[node name="BurstTriggerRange" type="Sprite2D" parent="." unique_id=1508132886]
+position = Vector2(-1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.13399997, 0.13399997)
+texture = ExtResource("1_ixx3c")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
