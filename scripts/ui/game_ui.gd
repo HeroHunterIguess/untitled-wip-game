@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+### THIS UI IS OUTDATED & BAD AND NEEDS TO BE FIXED ###
+
 func _process(_delta):
 	# display health:
 	$health.text = str(data.player_health) + " HP"

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+### variables ###
+
 # movement related variables
 var current_gravity = global.GRAVITY
 
@@ -45,7 +47,7 @@ func take_kb(force, is_right):
 	velocity.y -= global.VERTICAL_KNOCKBACK
 
 
-# updating movement and physics every frame
+### updating movement and physics every frame ###
 func _physics_process(delta: float) -> void:
 	
 	# update cooldowns/timers
@@ -157,7 +159,7 @@ const melee_preload = preload("res://scenes/attacks/basic_melee.tscn")
 const ground_slam_preload = preload("res://scenes/attacks/ground_slam.tscn")
 const burst_preload = preload("res://scenes/attacks/player_burst_attack.tscn")
 
-# main inputs and attacks
+### main inputs and attacks ###
 func _process(_delta):
 	
 	# camera control:
