@@ -15,8 +15,6 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_g2els")
 
-[node name="damage_orb" parent="." unique_id=1435399317 instance=ExtResource("3_qhqgy")]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1315930475 groups=["player"]]
 shape = SubResource("RectangleShape2D_g2brh")
 
@@ -34,3 +32,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_hitbox" unique_id=161834330 groups=["player"]]
 shape = SubResource("RectangleShape2D_g2els")
 debug_color = Color(0.9105063, 0.00010935307, 0.7315297, 0.41960785)
+
+[node name="damage_orb" parent="." unique_id=1435399317 instance=ExtResource("3_qhqgy")]
+collision_layer = 1
+collision_mask = 1
