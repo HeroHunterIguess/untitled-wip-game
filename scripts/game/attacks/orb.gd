@@ -6,6 +6,7 @@ const COOLDOWN = 0.45
 
 var checking = true
 
+# damage timer
 func _process(_delta):
 	await get_tree().create_timer(COOLDOWN).timeout
 	

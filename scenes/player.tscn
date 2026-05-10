@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://mwekxer4e5ya" path="res://scripts/game/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://dilao2o8ys7jd" path="res://art/objects_characters/player.png" id="2_g2els"]
-[ext_resource type="PackedScene" uid="uid://dgheaprjvgmdl" path="res://scenes/attacks/orb.tscn" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
 size = Vector2(32, 64)
@@ -32,7 +31,3 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_hitbox" unique_id=161834330 groups=["player"]]
 shape = SubResource("RectangleShape2D_g2els")
 debug_color = Color(0.9105063, 0.00010935307, 0.7315297, 0.41960785)
-
-[node name="damage_orb" parent="." unique_id=1435399317 instance=ExtResource("3_qhqgy")]
-collision_layer = 1
-collision_mask = 1
