@@ -1,5 +1,6 @@
 extends "res://scripts/autoloads/attack_methods.gd"
 
+# constants
 const DAMAGE = 50
 const KNOCKBACK = 270
 const SPEED = 0.8
