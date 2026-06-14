@@ -1,7 +1,7 @@
 extends Node2D
 
 var rng = RandomNumberGenerator.new()
-var AMOUNT_OF_PLATFORMS = rng.randi_range(3,6)
+var AMOUNT_OF_PLATFORMS = rng.randi_range(4,6)
 
 var start_time = Time.get_unix_time_from_system() - 20
 var game_running = true
