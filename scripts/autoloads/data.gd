@@ -11,7 +11,7 @@ var player_health = 100
 ### player related things ###
 var max_jumps = 0 # 0 = only jumping on ground
 var slamming = false
-var can_freeze = true
+var can_freeze = false
 var has_dash = false
 
 var score = 0

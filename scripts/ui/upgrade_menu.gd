@@ -76,5 +76,8 @@ func _on_upgrade_2_button_down() -> void:
 		# unlock current movement upgrade
 		if current_movement_upgrade == 0:
 			data.has_dash = true
+		elif current_movement_upgrade == 1 or current_movement_upgrade == 3:
+			data.max_jumps += 1
+		# add thing to unlock freeze bc rn you always have it
 	
 	close()
