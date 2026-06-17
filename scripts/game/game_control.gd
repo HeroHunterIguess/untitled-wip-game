@@ -8,7 +8,7 @@ var game_running = true
 var round_bonus_time = 0
 var offset = 0
 
-var amount_to_upgrade =  1 # normally 5
+var amount_to_upgrade =  2
 
 const enemy_preload = preload("res://scenes/enemy_types/basic_enemy.tscn")
 const burst_enemy_preload = preload("res://scenes/enemy_types/burst_enemy.tscn")

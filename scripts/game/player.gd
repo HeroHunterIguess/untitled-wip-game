@@ -207,9 +207,9 @@ func _process(delta):
 	if data.player_health <= 0:
 		print("Player Died.")
 		get_tree().change_scene_to_file("res://scenes/menus/death_screen.tscn")
-	# keep max hp at 100
-	if data.player_health > 100:
-		data.player_health = 100 
+	# keep max hp at max_health
+	if data.player_health > data.max_health:
+		data.player_health = data.max_health
 	
 	
 	### ATTACKS IN DIFFERENT SLOTS ###

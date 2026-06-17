@@ -8,13 +8,15 @@ const burst_upgrades = ["Burst", "Ground slam", "Super slam"] # super_slam not i
 const ranged_upgrades = ["Laser gun", "Grenade", "Frag grenade"] # none of these are implimented
 
 const movement_upgrades = ["dash", "double jump", "air freeze", "triple jump"]
-const repeating_upgrades = ["Health increase", "Melee damage increase", "Ranged damage increase", "Burst damage increase"] # none of these are implimented
+const repeating_upgrades = ["Health increase", "Melee damage increase", "Ranged damage increase", "Burst damage increase"]
 
 ### general variables ###
 var rng = RandomNumberGenerator.new()
 
 var button_1_rng = rng.randi_range(1, 3)
 var button_2_rng = rng.randi_range(1, 2)
+
+var repeat_upgrade_option
 
 var start_time = Time.get_unix_time_from_system()
 
@@ -42,11 +44,11 @@ func _ready():
 		$upgrade_1.text = "Unlock " + burst_upgrades[data.current_burst_tier+1]
 	if button_1_rng == 3:
 		$upgrade_1.text = "Unlock " + ranged_upgrades[data.current_ranged_tier+1]
-	
 	if button_2_rng == 1:
 		$upgrade_2.text = "Unlock " + movement_upgrades[data.current_movement_upgrade+1] 
 	if button_2_rng == 2:
-		$upgrade_2.text = repeating_upgrades[rng.randi_range(0, len(repeating_upgrades) - 1)]
+		repeat_upgrade_option = rng.randi_range(0, len(repeating_upgrades) - 1)
+		$upgrade_2.text = repeating_upgrades[repeat_upgrade_option]
 
 
 ### get upgrades ###
@@ -77,9 +79,18 @@ func _on_upgrade_2_button_down() -> void:
 			data.max_jumps += 1
 		elif data.current_movement_upgrade == 2:
 			data.has_freeze = true
-		
-		data.current_movement_upgrade += 1
 	
-	# NEED TO IMPLIMENT REOCCURING ABILITIES
+	# reoccuring upgrades
+	
+	if button_2_rng == 2: 
+		if repeating_upgrades[repeat_upgrade_option] == "Health increase":
+			data.max_health += 2
+			data.player_health += 2
+		elif repeating_upgrades[repeat_upgrade_option] == "Melee damage increase":
+			data.melee_damage_increase += 4
+		elif repeating_upgrades[repeat_upgrade_option] == "Ranged damage increase":
+			data.ranged_damage_increase += 4
+		elif repeating_upgrades[repeat_upgrade_option] == "Burst damage increase":
+			data.burst_damage_increase += 4
 	
 	close()
