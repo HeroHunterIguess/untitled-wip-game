@@ -54,6 +54,8 @@ func _ready():
 			repeat_upgrade_option = rng.randi_range(0, len(repeating_upgrades) - 1)
 		elif data.current_ranged_tier > -1 and data.current_burst_tier == -1:
 			repeat_upgrade_option = rng.randi_range(0, len(repeating_upgrades) - 2)
+		else:
+			repeat_upgrade_option = rng.randi_range(0, len(repeating_upgrades) - 3)
 		$upgrade_2.text = repeating_upgrades[repeat_upgrade_option]
 
 

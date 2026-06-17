@@ -270,11 +270,12 @@ func _process(delta):
 		visibility_change[i] = showing_halo[i]
 		
 		if i == 0:
-			showing_halo[0] = data.dash_timer <= 0
-			# show /hide if you have dash or dont
+			halos[0].visible = true
+			# show/hide if you have dash or dont
 			if data.has_dash:
-				halos[0].visible = true
+				showing_halo[0] = data.dash_timer <= 0
 			else:
+				showing_halo[0] = false
 				halos[0].visible = false
 		elif i == 1:
 			halos[1].visible = true
