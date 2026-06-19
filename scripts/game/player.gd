@@ -18,6 +18,8 @@ const SLAM_REBOUNCE = 550
 
 const BURST_COOLDOWN = 200
 
+const MELEE_COOLDOWN = 30
+
 const FREEZE_TIME = 1
 var frozen = false
 
@@ -84,6 +86,7 @@ func _physics_process(delta: float) -> void:
 	# update cooldowns/timers
 	data.dash_timer -= 1
 	data.burst_timer -= 1
+	data.melee_timer -= 1
 	
 	# apply gravity
 	velocity.y += current_gravity * delta 
@@ -213,13 +216,14 @@ func _process(delta):
 	### ATTACKS IN DIFFERENT SLOTS ###
 	
 	# spawn melee attack
-	if Input.is_action_just_pressed("melee_slot"):
+	if Input.is_action_just_pressed("melee_slot") and data.melee_timer <= 0:
 		
 		# spawn basic melee attack
 		if data.melee_slot == "Basic melee" && !is_attacking && !data.slamming:
 			var melee_attack = melee_preload.instantiate()
 			
 			is_attacking = true
+			data.melee_timer = MELEE_COOLDOWN
 			
 			add_child(melee_attack)
 			
@@ -291,21 +295,22 @@ func _process(delta):
 				showing_halo[2] = false
 				halos[2].visible = false
 		
-		if visibility_change[i] != showing_halo[i]:
-			if showing_halo[i]:
-				for j in range(halos.size() - i - 1):
-					j += i + 1
-					halos[j].global_position.y -= halo_shift
-			else:
-				# this makes it so that the halos don't drop ads soon as the other one begins to disappear
-				await get_tree().create_timer(0.1).timeout
-				for j in range(halos.size() - i - 1):
-					j += i + 1
-					halos[j].global_position.y += halo_shift
-		
-		halo_animation(5 * delta, i)
-		halos[i].global_position.y += (amplitude * sin(time + i * 5))
-		
+		if halos[i].visible:
+			if visibility_change[i] != showing_halo[i]:
+				if showing_halo[i]:
+					for j in range(halos.size() - i - 1):
+						j += i + 1
+						halos[j].global_position.y -= halo_shift
+				else:
+					# this makes it so that the halos don't drop ads soon as the other one begins to disappear
+					await get_tree().create_timer(0.1).timeout
+					for j in range(halos.size() - i - 1):
+						j += i + 1
+						halos[j].global_position.y += halo_shift
+			
+			halo_animation(5 * delta, i)
+			halos[i].global_position.y += (amplitude * sin(time + i * 5))
+			
 	time += delta * frequency
 	
 	

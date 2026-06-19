@@ -3,6 +3,7 @@ extends Node
 ### data for the ui ###
 var dash_timer = 0.0
 var double_jumps = 0.0
+var melee_timer = 0.0
 var burst_timer = 0.0
 var ranged_timer = 0.0 # not currently implemented
 
