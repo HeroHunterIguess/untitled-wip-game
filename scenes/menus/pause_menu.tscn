@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b2a6f466fjkcf"]
+
+[ext_resource type="Script" uid="uid://0b2sks2cwca8" path="res://scripts/ui/pause_menu.gd" id="1_2wrho"]
+[ext_resource type="Texture2D" uid="uid://cg0eaeltmbilk" path="res://art/misc/burst_trigger_range.png" id="1_fwndu"]
+[ext_resource type="FontFile" uid="uid://cd0unvxelilu6" path="res://fonts/tenada/Tenada.ttf" id="2_7unhi"]
+[ext_resource type="Texture2D" uid="uid://chsrddhqvntxc" path="res://art/misc/attack.png" id="3_gsnt3"]
+
+[node name="pause_menu" type="CanvasLayer" unique_id=1237901716]
+process_mode = 3
+script = ExtResource("1_2wrho")
+
+[node name="BurstTriggerRange" type="Sprite2D" parent="." unique_id=1106782251]
+position = Vector2(960.00006, 474)
+scale = Vector2(1.408, 0.82)
+texture = ExtResource("1_fwndu")
+
+[node name="resume_button" type="Button" parent="." unique_id=1348000106]
+offset_left = 704.0
+offset_top = 232.0
+offset_right = 1216.0
+offset_bottom = 304.0
+theme_override_fonts/font = ExtResource("2_7unhi")
+theme_override_font_sizes/font_size = 40
+text = "RESUME"
+
+[node name="Attack" type="Sprite2D" parent="." unique_id=1407810047]
+position = Vector2(708, 264)
+scale = Vector2(0.04000001, 0.40000013)
+texture = ExtResource("3_gsnt3")
+
+[node name="Attack2" type="Sprite2D" parent="." unique_id=1738466245]
+position = Vector2(960, 228)
+scale = Vector2(2.5600002, 0.040000044)
+texture = ExtResource("3_gsnt3")
+
+[node name="Attack3" type="Sprite2D" parent="." unique_id=1051532523]
+position = Vector2(1212, 264)
+scale = Vector2(0.040000122, 0.39999995)
+texture = ExtResource("3_gsnt3")
+
+[node name="Attack4" type="Sprite2D" parent="." unique_id=1010000631]
+position = Vector2(960, 300)
+scale = Vector2(2.5599997, 0.03999999)
+texture = ExtResource("3_gsnt3")
+
+[connection signal="pressed" from="resume_button" to="." method="_on_resume_button_pressed"]

@@ -45,6 +45,7 @@ func set_location(object):
 
 
 func _ready():
+	
 	### spawn floating platforms ###
 	const PLATFORM_PRELOAD = preload("res://scenes/objects/floating_solid.tscn")
 	var locations = []
@@ -101,9 +102,20 @@ func _ready():
 ### spawn upgrade menu after certain amount of kills ###
 const upgrade_menu_preload = preload("res://scenes/menus/upgrade_menu.tscn")
 
+# preload pause menu
+const pause_menu_preload = preload("res://scenes/menus/pause_menu.tscn")
+
 func _process(_delta):
 	if data.score >= amount_to_upgrade:
 		var upgrade_menu = upgrade_menu_preload.instantiate()
 		add_child(upgrade_menu)
 		
 		amount_to_upgrade = round(amount_to_upgrade *  1.85)
+	
+	# show pause menu
+	if !get_tree().paused:
+		$Camera2D/pause_menu.visible = false
+		
+		if Input.is_action_just_pressed("pause"):
+			$Camera2D/pause_menu.visible = true
+			get_tree().paused = true
