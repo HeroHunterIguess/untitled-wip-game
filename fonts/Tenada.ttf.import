@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cd0unvxelilu6"
-path="res://.godot/imported/Tenada.ttf-ee9bed74abe5ab62c9cc604f979b5a42.fontdata"
+path="res://.godot/imported/Tenada.ttf-dac531b8d4234efbd3966c646a23d55e.fontdata"
 
 [deps]
 
-source_file="res://fonts/tenada/Tenada.ttf"
-dest_files=["res://.godot/imported/Tenada.ttf-ee9bed74abe5ab62c9cc604f979b5a42.fontdata"]
+source_file="res://fonts/Tenada.ttf"
+dest_files=["res://.godot/imported/Tenada.ttf-dac531b8d4234efbd3966c646a23d55e.fontdata"]
 
 [params]
 

@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="summer game"
+config/name="Blackline"
 run/main_scene="uid://cfdi5c3dfx8mp"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://0b2sks2cwca8" path="res://scripts/ui/pause_menu.gd" id="1_2wrho"]
 [ext_resource type="Texture2D" uid="uid://cg0eaeltmbilk" path="res://art/misc/burst_trigger_range.png" id="1_fwndu"]
-[ext_resource type="FontFile" uid="uid://cd0unvxelilu6" path="res://fonts/tenada/Tenada.ttf" id="2_7unhi"]
+[ext_resource type="FontFile" uid="uid://cd0unvxelilu6" path="res://fonts/Tenada.ttf" id="2_7unhi"]
 [ext_resource type="Texture2D" uid="uid://chsrddhqvntxc" path="res://art/misc/attack.png" id="3_gsnt3"]
 
 [node name="pause_menu" type="CanvasLayer" unique_id=1237901716]

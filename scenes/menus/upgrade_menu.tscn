@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://diklr234qsuy7" path="res://scripts/ui/upgrade_menu.gd" id="1_vsubm"]
 [ext_resource type="Texture2D" uid="uid://cg0eaeltmbilk" path="res://art/misc/burst_trigger_range.png" id="2_v6agg"]
 [ext_resource type="Texture2D" uid="uid://chsrddhqvntxc" path="res://art/misc/attack.png" id="2_vsubm"]
-[ext_resource type="FontFile" uid="uid://cd0unvxelilu6" path="res://fonts/tenada/Tenada.ttf" id="3_8v7sf"]
+[ext_resource type="FontFile" uid="uid://cd0unvxelilu6" path="res://fonts/Tenada.ttf" id="3_8v7sf"]
 
 [node name="upgrade_menu" type="CanvasLayer" unique_id=75080340]
 process_mode = 3
