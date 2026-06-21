@@ -18,7 +18,7 @@ const SLAM_REBOUNCE = 550
 
 const BURST_COOLDOWN = 200
 
-const MELEE_COOLDOWN = 15
+const MELEE_COOLDOWN = 20
 
 const FREEZE_TIME = 1
 var frozen = false
