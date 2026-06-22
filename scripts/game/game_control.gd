@@ -7,9 +7,9 @@ var game_running = true
 var round_bonus_time = 0
 var offset = 0
 
-var amount_to_upgrade = 2
+var amount_to_upgrade = 3
 
-var time_since_start = 20
+var time_since_start = 0
 
 const enemy_preload = preload("res://scenes/enemy_types/basic_enemy.tscn")
 const burst_enemy_preload = preload("res://scenes/enemy_types/burst_enemy.tscn")
@@ -76,9 +76,8 @@ func _ready():
 	### spawn enemies on time loop ###
 	while game_running:
 		# spawn enemies based on time elapsed
-		# perhaps use: 25 / (1 + pow(2.71, -0.2 * timer + 4) for basic enemy amounts 
-		var amount = time_since_start / 12.0
-		var burst_amount = time_since_start / 40.0
+		var amount = 25 / (1 + pow(2.71, -0.025 * time_since_start + 2.5))
+		var burst_amount = 8 / (1 + pow(2.71, -0.025 * time_since_start + 3))
 		
 		# spawn basic enemies
 		for i in range(amount):
@@ -98,7 +97,7 @@ func _ready():
 		await get_tree().create_timer(4 + round_bonus_time).timeout
 		
 		# add extra time for each round bc there will be more enemies
-		round_bonus_time += 1
+		round_bonus_time += 0.75
 
 
 ### spawn upgrade menu after certain amount of kills ###
@@ -112,7 +111,7 @@ func _process(_delta):
 		var upgrade_menu = upgrade_menu_preload.instantiate()
 		add_child(upgrade_menu)
 		
-		amount_to_upgrade = round(amount_to_upgrade *  1.85)
+		amount_to_upgrade = round(amount_to_upgrade *  1.8)
 	
 	# show pause menu
 	if !get_tree().paused:
