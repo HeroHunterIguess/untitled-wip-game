@@ -115,6 +115,8 @@ func _physics_process(delta: float) -> void:
 				velocity.x += DASH_FORCE
 			else:
 				velocity.x -= DASH_FORCE
+			
+			$dash_sfx.play()
 			await get_tree().create_timer(0.3).timeout
 			data.dashing = false
 		
@@ -257,6 +259,8 @@ func _process(delta):
 		if data.burst_slot == "Burst" && !is_attacking:
 			var burst = burst_preload.instantiate()
 			add_child(burst)
+			
+			$explosion_sfx.play()
 			
 			data.burst_timer = BURST_COOLDOWN
 			is_attacking = true
