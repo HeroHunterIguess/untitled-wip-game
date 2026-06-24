@@ -105,8 +105,8 @@ func _on_upgrade_2_button_down() -> void:
 	
 	if button_2_rng == 2: 
 		if repeating_upgrades[repeat_upgrade_option] == "Health increase":
-			data.max_health += 2
-			data.player_health += 2
+			data.max_health += 3
+			data.player_health += 3
 		elif repeating_upgrades[repeat_upgrade_option] == "Melee damage increase":
 			data.melee_damage_increase += 4
 		elif repeating_upgrades[repeat_upgrade_option] == "Ranged damage increase":

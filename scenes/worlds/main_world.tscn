@@ -148,5 +148,6 @@ autostart = true
 [node name="explosion_sfx" type="AudioStreamPlayer2D" parent="." unique_id=1435057815]
 position = Vector2(2496, 544)
 stream = ExtResource("8_fupqw")
+volume_db = -1.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

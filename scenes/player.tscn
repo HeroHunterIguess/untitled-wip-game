@@ -66,4 +66,4 @@ stream = ExtResource("5_qlg0r")
 
 [node name="dash_sfx" type="AudioStreamPlayer2D" parent="." unique_id=1394216623]
 stream = ExtResource("6_tuyoq")
-volume_db = 1.925
+volume_db = 3.0
