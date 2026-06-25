@@ -53,21 +53,19 @@ func _ready():
 	
 	for i in range(AMOUNT_OF_PLATFORMS):
 		var platform = PLATFORM_PRELOAD.instantiate()
+		var valid = false
 		
-		platform.global_position.y = rng.randi_range(0,400)
-		platform.global_position.x = rng.randi_range(100, 4550)
-		
-		platform.scale.x = rng.randf_range(0.45,1.4)
-		
-		# set to a random location but not too close to previous one
-		
-		# UPDATE THIS TO CHECK WITH EVERY PLATFORM NOT JUST PREVIOUS ONE
-		if len(locations) > 0: for plat in locations:
-			while abs(platform.global_position.x - plat.global_position.x) < 225:
-				platform.global_position.y = rng.randi_range(400,0)
-				platform.global_position.x = rng.randi_range(100, 4550) # edges of map
-				
-				platform.scale.x = rng.randf_range(0.45,1.3)
+		while not valid:
+			valid = true
+			
+			platform.global_position.x = rng.randi_range(100, 4550)
+			platform.global_position.y = rng.randi_range(0, 400)
+			platform.scale.x = rng.randf_range(0.45, 1.3)
+			
+			for plat in locations:
+				if abs(platform.global_position.x - plat.global_position.x) < 225:
+					valid = false
+					break
 		
 		locations.append(platform)
 		add_child(platform)

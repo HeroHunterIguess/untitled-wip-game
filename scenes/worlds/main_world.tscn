@@ -43,8 +43,8 @@ script = ExtResource("1_w87fn")
 environment = SubResource("Environment_y1qdg")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=351425868]
-modulate = Color(0.9494527, 0.9494527, 0.9494527, 1)
-self_modulate = Color(0.7849187, 0.7849187, 0.7849187, 1)
+modulate = Color(0.9471994, 0.9471994, 0.9471994, 1)
+self_modulate = Color(0.8992584, 0.8992584, 0.8992584, 1)
 texture_filter = 1
 position = Vector2(2500.0002, 64.00003)
 scale = Vector2(1.9281253, 0.7111111)
